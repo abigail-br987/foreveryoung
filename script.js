@@ -1,10 +1,10 @@
 const animation = [ // para que aplauda
-    "personita1.png",
-    "personita2.png",
-    "personita3.png",
-    "personita4.png",
-    "personita5.png",
-    "personita7.png"
+    "assets/personita1.png",
+    "assets/personita2.png",
+    "assets/personita3.png",
+    "assets/personita4.png",
+    "assets/personita5.png",
+    "assets/personita7.png"
 ];
 
 const wordText = document.querySelector(".word"),
@@ -12,6 +12,7 @@ const wordText = document.querySelector(".word"),
     timeText = document.querySelector(".time b"),
     inputField = document.querySelector("input"),
     container2 = document.querySelector(".container2"),
+    container1 = document.querySelector(".container"),
     refreshBtn = document.querySelector(".refresh-word"),
     checkBtn = document.querySelector(".check-word"),
     contentBox = document.querySelector(".container .content"),
@@ -21,6 +22,7 @@ const wordText = document.querySelector(".word"),
     box_content = document.querySelector(".box-content");
 
 var cajita = document.getElementById("cajita");
+var wholething = document.getElementById("word_scramble_game");
 var character = document.getElementById("littlecharacter");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
@@ -29,8 +31,9 @@ var box_text = document.getElementById("box-text");
 let correctWord, timer;
 let score = 0; 
 
-contentBox.style.display = "none";
+container1.style.display = "none";
 container2.style.display = "none";
+wholething.style.backgroundImage = "url('assets/ordena_y_gana_thumbnail.png')";
 box_text.innerHTML = `¡Con 10 aciertos ganas! ¡Tú puedes!`;
 
 const initTimer = (maxTime) => {
@@ -48,27 +51,28 @@ const initTimer = (maxTime) => {
 };
 
 const start = () => {
-    contentBox.style.display = "block";
-    startArea.style.display = "none";
-    thumbnail.style.display = "none";
+    container1.style.display = "block";
     container2.style.display = "block";
+    wholething.style.backgroundImage = "none";
+    startArea.style.display = "none"
+
     initGame(); 
 };
 
 const endGame = () => {
     clearInterval(timer);
-    contentBox.style.display = "none";
+    container1.style.display = "none";
+    container2.style.display = "none";
     box_content.classList.add("cajita-correct");
-    thumbnail.src = "paralaproxima-03.png"
-    thumbnail.style.display = "block";
+    wholething.style.backgroundImage = "url('assets/paralaproxima-03.png')";
 };
 
 const winGame = () => {
     clearInterval(timer);
-    contentBox.style.display = "none";
+    container1.style.display = "none";
+    container2.style.display = "none";
     box_content.classList.add("cajita-correct");
-    thumbnail.src = "felicidades-03.png"
-    thumbnail.style.display = "block";
+    wholething.style.backgroundImage = "url('assets/felicidades-03.png')";
 };
 
 const initGame = () => {
