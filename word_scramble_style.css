@@ -1,0 +1,169 @@
+
+#word_scramble_game{
+  width:1024px;
+  display:flex;
+}
+
+.container{
+  order:1;
+  width:100%;
+  height:400px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-image: url("pizarrajuego-09.png");
+  background-size: cover;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.container2{
+  width:(450px);
+  height:400px;
+  background-color: red;
+  order: 2;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container2 img{
+  width:450px;
+  height:330px;
+}
+
+#cajita{
+  height:70px;
+  margin-top:-4px;
+  background-color: #F7941D;
+  align-content: center;
+}
+
+.container h2{
+  font-family: groovy;
+  letter-spacing: 1px;
+  line-height: 10px;
+  font-size: 1.1rem;
+  margin-top:20px;
+  margin-bottom:10px;
+  font-weight: 500;
+  text-align: left;
+  color: #0B1734;
+  margin-left:50px;
+}
+
+#box-text{
+  text-align: center;
+}
+
+.startBtn{
+  width:150px;
+  cursor: pointer;
+  position:relative;
+  z-index:2;
+  margin-top:200px;
+  margin-left:400px;
+}
+.startBtn:hover{
+  width:180px;
+}
+
+
+.container .content{
+  margin-left:50px;
+  margin-right:50px;
+  margin-bottom:20px;
+}
+
+
+.content .word{
+  user-select: none;
+  font-size: 2rem;
+  font-weight: 500;
+  max-width:490px;
+  text-align: center;
+  text-shadow:
+    -2px -2px 0 white,
+    2px -2px 0 white,
+    -2px 2px 0 white,
+    2px 2px 0 white;
+  letter-spacing: 20px;
+  margin-right: -1.3em;
+  margin-top:0;
+  margin-bottom:0;
+  word-break: break-all;
+  text-transform: uppercase;
+}
+
+.details{
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.details p{
+  font-size: 1.1rem;
+  margin:0;
+}
+
+.details p b{
+  font-weight: 500;
+  font-weight:800;
+}
+
+#littlecharacter{
+  outline: #0B1734 solid 5px;
+}
+
+.content input{
+  height: 50px;
+  outline: 3px solid ;
+  padding: 0 16px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  font-family: "Darumadrop One";
+}
+
+.content input:focus{
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+}
+.content input::placeholder{
+  color: #aaa;
+}
+.content input:focus::placeholder{
+  color: #bfbfbf;
+}
+.content .buttons{
+  display: flex;
+  justify-content: space-between;
+  width:210px; 
+}
+.buttons button{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 45%;
+  height:50px;
+  font-size: 17px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.buttons button:active{
+  transform: scale(0.97);
+}
+.buttons .refresh-word{
+  background: #6c757d00;
+}
+.buttons .refresh-word:hover{
+  background: #6ABE44;
+}
+.buttons .check-word{
+  background: #0B1734;
+  color: #fff;
+}
+.buttons .check-word:hover{
+  background: #162444;
+}
+
+.score-area {
+  padding-top: 15px;
+  font-size: 18px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Forever Young Voluntariado</title>
+        <link rel="icon" href="logoforeveryoung.jpg" sizes="32x32" type="image/png">
+        </script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href = "juegos.css" rel="stylesheet" type="text/css">
+        <link href = "word_scramble_style.css" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="script.js" defer></script>
+        <script src="words.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    </head>
+
+
+    <body>
+        <header id="header">
+            <nav role="navigation">
+                <ul>
+                    <li><a href="https://www.instagram.com/forever_young_voluntariado/" target="_blank">INSTAGRAM</a></li>
+                    <li><a href="juegos.html">Juegos</a></li>
+                    <li><a href="index.html"><img src="logoforeveryoung.jpg" alt="Company Logo"></a></li>
+                    <li><a href="resources.html">Recursos</a></li>
+                    <li><a href="https://drive.google.com/drive/folders/1gNpCWpx-Tmdrjx7DPJAfCOhkjSf6tyLJ?usp=sharing" target="_blank">Diseños</a></li>
+                </ul> 
+            </nav>
+        </header>
+
+        <div style="margin-top:95px"></div>
+
+        <section id="intro">
+            <div>
+                <h1>Sección de Juegos</h1>
+                <p> Bubli, la mascotita de ForeverYoung, te acompañara en juegos que no solo están diseñados para entretener, 
+                    sino también para educar y promover el bienestar integral de los 
+                    adolescentes.
+                </p>
+                
+            </div>
+        </section>
+
+        <section id="word_scramble_game" style="outline: 4px solid white">
+            <div class="container">
+                <h2>ORDENA Y GANA</h2>
+                <img id="word_scramble_thumbnail" src="ordena_y_gana_thumbnail.png" style="width: 1024px; height:400px; position: absolute;"></img>
+                <div style="display: flex; justify-content: center"><img src= "start_button_image.png" onclick="start()" class="startBtn"></div>
+                <div class="content">
+                    <p class="word"></p>
+                    <div class="details">
+                        <p class="pista">Pista: <span></span> </p>
+                        <p class="time">Tiempo: <span><b>30</b>s</span></p>
+                    </div>
+                    <div class="details2" style="display:flex; justify-content: space-between;">
+                        <input type="text" spellcheck="false" placeholder="Escribe la palabra">
+                        <div class="buttons">
+                            <button class="refresh-word">Refrescar</button>
+                            <button class="check-word">Check</button>
+                        </div>
+                    </div>
+                    <div class="score-area"><span>Puntaje: </span><span class="score">0</span></div>
+                </div>
+            </div>
+            <div class="container2">
+                <img id=littlecharacter src="personita1.png">
+
+                <div id="cajita" class="modal">
+                    <div class="box-content">
+                        <p id="box-text"></p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+
+        <section id="trivia_game">
+            <img src="ponapruebatusaber-01.png" style="width:1024px; outline: 4px solid white; position: absolute; ">
+            
+            <a href="https://abigail-br987.itch.io/juego-de-preguntas-trivia" target="_blank">
+                <img src="start_button_image.png">
+            </a>
+        </section>
+
+

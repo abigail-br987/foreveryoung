@@ -1,0 +1,247 @@
+@font-face {
+    font-family:groovy;
+    src:url("cheese.ttf")
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+html{
+    background-color: #EF611F;
+}
+
+header {
+    justify-content:center;
+    align-items: center;
+    display: flex;
+    width:100%;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    outline: solid #0B1734 4px;
+    z-index: 100;
+}
+
+nav {
+    width: 1024px;
+    overflow: hidden;
+    height:auto;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Adjust spacing between items */
+    align-items: center;
+    letter-spacing: 1px;
+    line-height: 3em;
+    text-transform: uppercase;
+}
+
+
+nav ul li a:not(img a) {
+    display: block;
+    color: #0B1734;
+    font-family: groovy;
+    text-decoration: none;
+}
+
+nav ul li a{
+    font-size: 2rem;
+}
+
+nav ul li a:hover:not(.logo a) {
+    color: 
+    #EF611F; 
+    text-shadow:
+    -2px -2px 0 #0B1734,
+    2px -2px 0 #0B1734,
+    -2px 2px 0 #0B1734,
+    2px 2px 0 #0B1734; 
+}
+
+nav ul li img {
+    height: 70px;
+    margin-top:10px;
+}
+
+
+
+
+
+.square2 li a{
+    text-decoration:underline #0B1734;
+    color:
+    #EF611F;
+    text-align:left;
+    text-underline-offset:0.2em;
+    font-style: italic;
+}
+
+.square2 li{
+    list-style:square;
+}
+
+.square2 li a:hover{
+    color:#498f29
+    ;
+    text-decoration: none;
+}
+
+
+#block {
+    margin-top: 90px;
+    width:100%;
+    height:auto;
+    display: flex;
+    justify-content: center;
+    align-content:bottom;
+}
+
+#block div{
+    margin-top: 20px;
+    background-color:rgb(255, 255, 255);
+    width: 1024px;
+    border-radius: 50px;
+    outline: #0B1734 4px solid;
+    padding:30px;
+}
+
+#block h1{
+    font-size:80px;
+    text-align: center;
+    line-height: 1px;
+}
+
+#block p{
+    font-size: 1.1rem
+}
+
+
+#bigthing {
+    height:100%;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+h1{
+    font-family: groovy;
+    font-size: 3rem;
+    font-weight: 100;
+    line-height: 60px;
+    color: #6ABE44;
+    text-shadow:
+    -3px -3px 0 #0B1734,
+    3px -3px 0 #0B1734,
+    -3px 3px 0 #0B1734,
+    3px 3px 0 #0B1734;
+}
+
+h2,li,p{
+    font-family: "Darumadrop One", sans-serif;
+}
+
+#resourcescontainer {
+    color: 
+    #0B1734
+    ;
+    width: 1024px;
+    height:auto;
+    padding: 1rem;
+    display: grid;
+    align-items: stretch;
+    justify-content: space-around;
+    grid-gap: 24px;
+}
+
+.square {
+    max-width: 500px;
+    background-color: rgb(255, 255, 255);
+    word-wrap: break-word; /* Forces long words to break and wrap */
+    overflow-wrap: break-word; /* Ensures long words break in all browsers */
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    border-radius: 20px;
+    border: 4px #0B1734 solid;
+}
+
+.square2 ul{
+    margin:5%;
+}
+
+
+.square2{
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    text-align: center; 
+    /* Optional: to center the text inside the inner div */
+}
+
+.square2 ul{
+    text-align:left
+}
+
+.square .square2 div {
+    display: table-column;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+
+
+
+@media only screen and (max-width: 770px) {
+    nav ul li a{
+        font-size:13px;
+    }
+    html{
+        background-color:white; 
+    }
+    #block div{
+        width: auto;;}
+    
+}
+
+@media only screen and (max-F: 860px) and (min-width:750px) {
+    nav ul li a{
+        font-size:20px;
+    }
+    
+}
+
+@media only screen and (min-width: 0px) and (max-width:1024px) {
+    section {
+        display: table-column;
+        width:80%;
+    }
+
+    .square{
+        width:100%;
+        max-width:100%;
+    }
+
+}
+
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 1024px) {
+    section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    html{
+        background: url(background.png) no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+}
