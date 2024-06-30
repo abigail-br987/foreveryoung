@@ -125,6 +125,7 @@
     p{
         text-align: justify;
         margin:0;
+        font-size:1.2rem;
     }
     
     h1{
@@ -300,7 +301,15 @@
         grid-template-columns: repeat(3,1fr)
     }
     
-    
+    .specialgrid3 {
+        display: grid; 
+        gap: 20px 20px;
+        padding: 0;
+        }
+        .ha { grid-area: ha; }
+        .ho { grid-area: ho; }
+        .hi { grid-area: hi; }
+        .he { grid-area: he; }
     
     @media (min-width: 700px) {
         .miembrosgrid {
@@ -318,11 +327,32 @@
         .miembrosgrid {
         grid-template-columns: 1fr;
         }
+        .specialgrid3{
+            display: block;
     }
     
     @media screen and (max-width:1200px) {
         section{
         width:90%
+        }
+        
+        
+    }
+    @media (min-width:1200px){
+        .trespordos {
+            grid-template-columns: 1fr 1fr 1fr 1fr; 
+            grid-template-rows: 1fr 1fr; 
+            grid-template-areas: 
+        ". . . ."
+        ". . . ."; 
+        }
+        .specialgrid3{
+        grid-template-columns: 1.2fr 0.8fr; 
+        grid-template-rows: 1.2fr 0.5fr 1.3fr; 
+        grid-template-areas: 
+            "ha hi"
+            "ha ho"
+            "he ho"; 
         }
     }
     @media screen and (min-width:400px) and (max-width:1199px){
@@ -330,6 +360,21 @@
         display: grid;
         grid-template-columns: repeat(2,1fr)
         }
+        .trespordos {
+            
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr; 
+        grid-template-areas: 
+". . ."
+". . ."; 
+    }
+        .specialgrid3{
+
+            grid-template-areas: 
+                "ha hi"
+                "ha ho"
+                "he he"; 
+            }
     }
     
     @media screen and (min-width:0px) and (max-width:840px) {
@@ -362,6 +407,33 @@
         display: grid;
         grid-template-columns: repeat(1,1fr)
         }
+        .trespordos{
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: 1fr 1fr 1fr; 
+            grid-template-areas: 
+    ". . "
+    ". . " 
+    ". . "; 
+        }
+        .specialgrid3{
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: 1fr 1fr 3fr; 
+            grid-template-areas: 
+            "ha ha"
+            "ha hi"
+            "he he"; 
+        }.ha {
+                grid-area: ha;
+            }
+            
+            .hi {
+                grid-area: hi;
+            }
+            
+            .he {
+                grid-area: he;
+            }
+        }
     }
     
     
@@ -373,3 +445,61 @@
         max-height:400px;
         }
     }
+
+
+
+.trespordos {
+        display: grid; 
+        gap: 20px 20px;
+
+    }
+
+.trespordos div{
+    border: 3px solid black;
+}
+
+
+.specialgrid3 div{
+    border: 3px solid black
+}
+
+
+.specialgrid2 {  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    gap: 20px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "ae ae"
+        "ao au"
+        "ai ai"
+        "ua ue";
+    }
+    
+    .ae { grid-area: ae; }
+    
+    .ai { grid-area: ai; }
+    
+    .ao { grid-area: ao; }
+    
+    .au { grid-area: au; }
+    
+    .ua { grid-area: ua; }
+    
+    .ue { grid-area: ue; }
+
+.specialgrid2 div{
+    border: 3px solid black
+}
+
+.specialgrid4 {  display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-rows: 1fr;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". .";
+    }
+  
