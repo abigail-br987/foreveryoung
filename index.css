@@ -382,18 +382,6 @@
     border: 3px solid black;
 }
 
-.specialgrid2 {  display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-auto-columns: 1fr;
-    gap: 20px 20px;
-    grid-auto-flow: row;
-    grid-template-areas:
-        "ae ae"
-        "ao au"
-        "ai ai"
-        "ua ue";
-    }
     
     .ae { grid-area: ae; }
     
@@ -456,6 +444,9 @@
         .specialgrid4 {
             display: block;
         }
+        .specialgrid2 {  display: block;
+        }
+
     }
     
     @media (min-width: 401px) and (max-width: 800px) {
@@ -494,6 +485,21 @@
             display: none;
         }
 
+        
+        .specialgrid2 {  display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
+            grid-auto-columns: 1fr;
+            gap: 20px 20px;
+            grid-auto-flow: row;
+            grid-template-areas:
+                "ae ae"
+                "ao ao"
+                "ai ai"
+                "au au"
+                "ua ua"
+                "ue ue";
+            }
 
     }
     
@@ -523,6 +529,19 @@
         .cuatropordos {
             grid-template-columns: repeat(2, 1fr);
         }
+            
+    .specialgrid2 {  display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-auto-columns: 1fr;
+        gap: 20px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "ae ae"
+            "ao au"
+            "ai ai"
+            "ua ue";
+        }
 
     }
     
@@ -550,7 +569,21 @@
         .specialgrid5{
             grid-template-columns: 1fr 1fr;
         }
-    }
+
+        
+    .specialgrid2 {  display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        grid-auto-columns: 1fr;
+        gap: 20px 20px;
+        grid-auto-flow: row;
+        grid-template-areas:
+            "ae ae"
+            "ao au"
+            "ai ai"
+            "ua ue";
+        }
+        }
     
     @media (max-width: 840px) {
         .flexbox-section {
