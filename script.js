@@ -16,7 +16,7 @@ const wordText = document.querySelector(".word"),
     refreshBtn = document.querySelector(".refresh-word"),
     checkBtn = document.querySelector(".check-word"),
     contentBox = document.querySelector(".container .content"),
-    startArea = document.querySelector(".startBtn"),
+    startArea = document.querySelector(".startBtn_ordena"),
     scoreArea = document.querySelector(".score"),
     thumbnail = document.querySelector("#word_scramble_game #word_scramble_thumbnail"),
     box_content = document.querySelector(".box-content");
@@ -29,7 +29,7 @@ var span = document.getElementsByClassName("close")[0];
 var box_text = document.getElementById("box-text");
 
 let correctWord, timer;
-let score = 0; 
+let score_ordena = 0; 
 
 container1.style.display = "none";
 container2.style.display = "none";
@@ -89,9 +89,9 @@ const initGame = () => {
     correctWord = randomObj.word.toLowerCase();
     inputField.value = "";
     inputField.setAttribute("maxlength", correctWord.length);
-    scoreArea.innerHTML = score;
+    scoreArea.innerHTML = score_ordena;
 
-    if (score > 9) {
+    if (score_ordena > 9) {
         winGame();
     }
 };
@@ -107,9 +107,9 @@ const checkWord = () => {
     }
 
     if (userWord !== correctWord) { 
-        if (score >= 1) {
-            score = score - 1; 
-            scoreArea.innerHTML = score;
+        if (score_ordena >= 1) {
+            score_ordena = score_ordena - 1; 
+            scoreArea.innerHTML = score_ordena;
         }
         cajita.style.display = "block";
         box_content.classList.add("cajita-wrong");
@@ -122,7 +122,7 @@ const checkWord = () => {
         box_content.classList.remove("cajita-wrong");
         box_content.classList.add("cajita-correct");
         box_text.innerHTML = `Si! <b>${correctWord.toUpperCase()}<b> es la palabra`;
-        score++;
+        score_ordena++;
         playAnimation();
         initGame();
     }

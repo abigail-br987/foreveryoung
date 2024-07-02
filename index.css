@@ -140,10 +140,20 @@
         2px 2px 0 var(--dark-blue);
         margin:0;
     }
+
+    h4{
+        font-family: Cheese;
+        font-size:1.6rem;  
+        line-height:1.5em;
+        color: var(--dark-blue);
+        margin-top:0;
+        margin-bottom:10px;
+    }
     
     h2{
         font-family: Cheese;
         margin:0;
+        margin-bottom: 10px;
         font-size: 2.5rem;
         line-height: 40px;
         color: #6ABE44;
@@ -262,6 +272,8 @@
     }
     button{
         align-self: flex-start;
+        padding-bottom:13px;
+        box-shadow: 0px 5px 0px var(--dark-blue); /* Solid shadow below */
     }
     
     button a{
@@ -294,13 +306,20 @@
     }
     
     
+
+
+
+
+
+
+
     .three-columns{
         display: grid;
         gap:20px;
         align-items: self-start;
         grid-template-columns: repeat(3,1fr)
     }
-    
+
     .specialgrid3 {
         display: grid; 
         gap: 20px 20px;
@@ -310,159 +329,25 @@
         .ho { grid-area: ho; }
         .hi { grid-area: hi; }
         .he { grid-area: he; }
-    
-    @media (min-width: 700px) {
-        .miembrosgrid {
-        grid-template-columns: repeat(3, 1fr);
-        }
-    }
-    
-    @media (min-width: 400px) and (max-width: 699px) {
-        .miembrosgrid {
-        grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    
-    @media (min-width:0px) and (max-width: 399px) {
-        .miembrosgrid {
-        grid-template-columns: 1fr;
-        }
-        .specialgrid3{
-            display: block;
-    }
-    
-    @media screen and (max-width:1200px) {
-        section{
-        width:90%
-        }
-        
-        
-    }
-    @media (min-width:1200px){
-        .trespordos {
-            grid-template-columns: 1fr 1fr 1fr 1fr; 
-            grid-template-rows: 1fr 1fr; 
-            grid-template-areas: 
-        ". . . ."
-        ". . . ."; 
-        }
-        .specialgrid3{
-        grid-template-columns: 1.2fr 0.8fr; 
-        grid-template-rows: 1.2fr 0.5fr 1.3fr; 
-        grid-template-areas: 
-            "ha hi"
-            "ha ho"
-            "he ho"; 
-        }
-    }
-    @media screen and (min-width:400px) and (max-width:1199px){
-        .three-columns{
-        display: grid;
-        grid-template-columns: repeat(2,1fr)
-        }
-        .trespordos {
-            
-        grid-template-columns: 1fr 1fr 1fr; 
-        grid-template-rows: 1fr 1fr; 
-        grid-template-areas: 
-". . ."
-". . ."; 
-    }
-        .specialgrid3{
 
-            grid-template-areas: 
-                "ha hi"
-                "ha ho"
-                "he he"; 
-            }
-    }
-    
-    @media screen and (min-width:0px) and (max-width:840px) {
-        .flexbox-section{
-        display: flex;
-        flex-direction: column; 
-        }
-        p{
-        margin-top:20px;
-        }
-        .left-image{
-        max-height:none;
-        }
-        #vertical{
-        writing-mode: horizontal-tb;
-        transform: rotate(0deg);
-        }
-        section{
-        display: flex;
-        flex-direction: column;
-        }
-        button{
-        margin-top:20px;
-        }
-    
-        nav ul li a{
-        font-size:13px;
-        }
-        .three-columns{
-        display: grid;
-        grid-template-columns: repeat(1,1fr)
-        }
-        .trespordos{
-            grid-template-columns: 1fr 1fr; 
-            grid-template-rows: 1fr 1fr 1fr; 
-            grid-template-areas: 
-    ". . "
-    ". . " 
-    ". . "; 
-        }
-        .specialgrid3{
-            grid-template-columns: 1fr 1fr; 
-            grid-template-rows: 1fr 1fr 3fr; 
-            grid-template-areas: 
-            "ha ha"
-            "ha hi"
-            "he he"; 
-        }.ha {
-                grid-area: ha;
-            }
-            
-            .hi {
-                grid-area: hi;
-            }
-            
-            .he {
-                grid-area: he;
-            }
-        }
-    }
-    
-    
-    @media screen and (min-width:841px){
-        .flexbox-section{
-        grid-template-columns: 4fr 3fr; 
-        }
-        .left-image{
-        max-height:400px;
-        }
-    }
-
-
-
-.trespordos {
-        display: grid; 
-        gap: 20px 20px;
-
-    }
-
-.trespordos div{
+.cuatropordos div{
+    border: 3px solid black;
+    box-shadow: 0px 5px 0px #0B1734;
+    border-radius: 20px;
+}
+.cuatropordos img{
+    border-radius: 20px;
+    border: 3px solid var(--dark-blue);
+}
+.cuatropordos h3{
+    text-align: center;
+}
+.specialgrid3 div{
     border: 3px solid black;
 }
-
-
-.specialgrid3 div{
-    border: 3px solid black
+.specialgrid4 div, .specialgrid4 img{
+    border: 3px solid black;
 }
-
 
 .specialgrid2 {  display: grid;
     grid-template-columns: 1fr 1fr;
@@ -495,11 +380,149 @@
 
 .specialgrid4 {  display: grid;
     grid-template-columns: 0.9fr 1.1fr;
-    grid-template-rows: 1fr;
-    grid-auto-columns: 1fr;
-    gap: 0px 0px;
+    gap: 20px 20px;
     grid-auto-flow: row;
     grid-template-areas:
         ". .";
     }
-  
+
+
+    .miembrosgrid {
+        display: grid;
+    }
+    
+    .specialgrid3 {
+        display: grid;
+    }
+    
+    .cuatropordos {
+        display: grid;
+        gap: 20px;
+    }
+    @media (min-width: 0px) and (max-width: 400px) {
+        .miembrosgrid {
+            grid-template-columns: 1fr;
+        }
+        .specialgrid3 {
+            display: block;
+        }
+        .cuatropordos {
+            display: block;
+        }
+        section {
+            max-width: 90%;
+        }
+        .details2 {
+            flex-direction: column;
+        }
+    }
+    
+    @media (min-width: 401px) and (max-width: 800px) {
+        .miembrosgrid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .three-columns {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .cuatropordos {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .specialgrid3 {
+            grid-template-areas:
+                "ha hi"
+                "ha ho"
+                "he he";
+        }
+        section {
+            max-width: 90%;
+        }   
+        .details2{
+            flex-direction: column;
+        }
+    }
+    
+    @media (min-width: 801px) and (max-width: 1200px) {
+        .miembrosgrid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .specialgrid3 {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr 3fr;
+            grid-template-areas:
+                "ha ha"
+                "ha hi"
+                "he he";
+        }
+        section {
+            max-width: 90%;
+        }
+        .three-columns {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    
+    @media (min-width: 1201px) {
+        .specialgrid3 {
+            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-rows: 1.2fr 0.5fr 1.3fr;
+            grid-template-areas:
+                "ha hi"
+                "ha ho"
+                "he ho";
+        }
+        .cuatropordos {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .three-columns {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .miembrosgrid {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        section {
+            max-width: 90%;
+        }
+    }
+    
+    @media (max-width: 840px) {
+        .flexbox-section {
+            display: flex;
+            flex-direction: column;
+        }
+        p, button {
+            margin-top: 20px;
+        }
+        .left-image {
+            max-height: none;
+        }
+        #vertical {
+            writing-mode: horizontal-tb;
+            transform: rotate(0deg);
+        }
+        section {
+            display: flex;
+            flex-direction: column;
+        }
+        nav ul li a {
+            font-size: 13px;
+        }
+        .three-columns {
+            grid-template-columns: 1fr;
+        }
+        .ha { grid-area: ha; }
+        .hi { grid-area: hi; }
+        .he { grid-area: he; }
+    }
+    
+    @media (min-width: 841px) {
+        .flexbox-section {
+            grid-template-columns: 4fr 3fr;
+        }
+        .left-image {
+            max-height: 400px;
+        }
+    }
+
+.shadow{
+    box-shadow: 0px 5px 0px #0B1734
+}

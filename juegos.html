@@ -11,8 +11,9 @@
         <link href = "word_scramble_style.css" rel="stylesheet" type="text/css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <script src="script.js" defer></script>
-        <script src="words.js" defer></script>
+        
+        
+        <link href = "juego_valores.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
     </head>
 
@@ -37,14 +38,21 @@
                 <h1>Sección de Juegos</h1>
                 <p>Bubli, la mascotita de ForeverYoung, te acompañara en juegos que no solo están diseñados para entretener, 
                     sino también para educar y promover el bienestar integral de los 
-                    adolescentes.</p>
+                    adolescentes. Estos juegos funcionan mejor en computadora</p>
             </div>
         </section>
 
-        <section>
+        <section style="flex-direction: column;">
+            <p style="width:90%">¡Ordena y Gana! 🎉
+                ¿Estás listo para poner a prueba tu habilidad con las palabras? 🧠✨
+                En este juego, tu misión es ordenar letras desordenadas para formar palabras. 🔡 
+                Pero no te preocupes, habran pistas para ayudarte!                
+                </p>
+            <script src="script.js" defer></script>
+            <script src="words.js" defer></script>
             <div id="word_scramble_game">
                 <div>
-                    <img src= "assets/start_button_image.png" onclick="start()" class="startBtn">
+                    <img src= "assets/start_button_image.png" onclick="start()" class="startBtn startBtn_ordena">
                 </div>
                 <div class="container">
                     <div class="content">
@@ -74,12 +82,24 @@
                 </div>
             </div>
         </section>
+        <section style="flex-direction: column;">
+            <p style="width:90%">
+                ¡Valores en Ascenso! En este juego, los valores te llevarán más alto.
+                Los pilares de valores como amor, 
+                resiliencia y responsabilidad que te sostendrán en tu ascenso hacia nuevas alturas.
+
+                </p>
+            <script src="juego_valores.js" defer></script>
+            <canvas id="board"></canvas>
+            <img src= "assets/start_button_image.png" onclick="start_valores()" id="startBtn_valores" class="startBtn">
+        </section>
         <section>
             <div id="trivia_game">
             <a href="https://abigail-br987.itch.io/juego-de-preguntas-trivia" target="_blank">
-                <img src="assets/start_button_image.png" style="width:200px">
+                <img src="assets/start_button_image.png" class="startBtn">
             </a>
             </div>
         </section>
+
 
 

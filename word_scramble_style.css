@@ -32,7 +32,7 @@ body{
 
 .container {
   display: flex;
-  
+  font-size:0.8rem;
   max-width:574px;
   background-image: url("assets/pizarrajuego-09.png");
   background-position: center center;
@@ -91,6 +91,11 @@ body{
   }
 }
 
+@media screen and (min-width:1024px){
+  #word_scramble_game {
+    width:90%;
+}
+}
 @media screen and (min-width: 631px)and (max-width: 1023px) {
   .container {
       width: 100%;
@@ -167,11 +172,13 @@ body{
 .startBtn{
   width: 150px;
   cursor: pointer;
+}
+
+.startBtn_ordena{
   position: absolute;
   top: 70%;
   left: 70%;
   transform: translate(-75%, -50%);
-  
 }
 .startBtn:hover{
       width:180px;
