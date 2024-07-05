@@ -126,8 +126,8 @@
     
     p{
         text-align: justify;
-        margin:0;
         font-size:1.rem;
+        margin:0px;
     }
     
     h1{
@@ -349,11 +349,18 @@
     
 }
 
+.cuatropordos img{
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
 .specialgrid5 img{
     width:100%; 
     margin-top: 20px;
     object-fit: cover;
     aspect-ratio: 4/2;
+    border:3px solid var(--dark-blue);
+    border-radius: 20px;
 }
 
 .specialgrid5 div{
