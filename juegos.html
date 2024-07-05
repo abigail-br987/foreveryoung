@@ -11,7 +11,7 @@
         <link href = "word_scramble_style.css" rel="stylesheet" type="text/css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        
+
         
         <link href = "juego_valores.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
@@ -30,7 +30,8 @@
                 </ul>
             </nav>
         </header>
-
+        
+    
         <div class="space"></div>
 
         <section id="block">
@@ -42,12 +43,53 @@
             </div>
         </section>
 
+
+        
+
         <section style="flex-direction: column;">
-            <p style="width:90%">¡Ordena y Gana! 🎉
-                ¿Estás listo para poner a prueba tu habilidad con las palabras? 🧠✨
-                En este juego, tu misión es ordenar letras desordenadas para formar palabras. 🔡 
-                Pero no te preocupes, habran pistas para ayudarte!                
+            <div>
+                <h4>Verdad o Mentira</h4>
+                <p>En este juego, los jugadores responden a preguntas de opción múltiple con "verdad" o "mentira". Cada pregunta aborda temas relacionados con la salud mental, física y social.
+                    El objetivo del juego es aprender y corregir conceptos erróneos comunes sobre temas como el bullying, la salud menstrual, la alimentación, la salud mental, y otros asuntos vitales. Cuando los jugadores responden incorrectamente, el juego proporciona una explicación que ayuda a aclarar el tema.
+            </div>
+
+            </p>
+            <div id="yesornogame" style="position: relative; padding: 0px;">
+                <img id="thumbnail" src="assets/siono_thumbnail-08.png">
+                <img class="startBtn" onClick="start_yesorno()" id="startBtn_yesorno" src="assets/start_button_image.png" style="position: absolute; top: 90%; left: 50%; transform: translate(-50%, -50%);">
+                <div id="container1_yn">
+                    <img src="assets/personita_yn-02.png" id="littlecharacter_yn">
+                </div>
+                <div id="container2_yn">
+                    <div>
+                    <h3>Minijuego: ¿Verdad o Mentira?</h3>
+                    <div id="question_yesorno"></div>
+                    <div id="answer-buttons">
+                        <button onclick="answerQuestion_yesorno(true)">VERDAD</button>
+                        <button onclick="answerQuestion_yesorno(false)">MENTIRA</button>
+                    </div>
+                    </div>
+                    <div id="score_yesorno" class="shadow"></div>
+                </div>
+            </div>
+        </section>
+
+        
+        <script src="yesorno.js"></script>
+
+
+        <section style="flex-direction: column;">
+            <div>
+            <h4>¡Ordena y Gana!</h4>
+                <p>
+                    ¡Descubre ¡Ordena y Gana! 🌟, el juego que desafiará tu habilidad 
+                    con las palabras como nunca antes. En este divertido desafío, tu 
+                    objetivo es ordenar letras desordenadas para formar palabras. 
+                    Utiliza pistas útiles si te encuentras atascado y prepárate para 
+                    desarrollar tu vocabulario mientras te diviertes. ¿Estás listo 
+                    para el desafío? ¡Ordena y Gana! 🧠✨
                 </p>
+            </div>
             <script src="script.js" defer></script>
             <script src="words.js" defer></script>
             <div id="word_scramble_game">

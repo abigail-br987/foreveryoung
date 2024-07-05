@@ -17,7 +17,7 @@
         color: var(--dark-blue);
         background-color: var(--white);
         font-family: 'Darumadrop One';
-        line-height: 1.5em;
+        line-height: 1.6em;
         font-synthesis: none;
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
@@ -127,7 +127,7 @@
     p{
         text-align: justify;
         margin:0;
-        font-size:1.2rem;
+        font-size:1.rem;
     }
     
     h1{

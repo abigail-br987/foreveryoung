@@ -5,3 +5,127 @@
 
 
 
+#yesornogame #answer-buttons{
+    width:100%;
+    height:200px;
+}
+
+#yesornogame #answer-buttons button{
+    width:40%;
+    height:80%;
+    margin:0px;
+    font-size:1.4rem;
+    padding:0px;
+    align-self: center;
+}
+
+#yesornogame #answer-buttons button:nth-child(1){
+    background-color: var(--green);
+}
+#yesornogame #answer-buttons button:nth-child(2){
+    background-color: rgb(255, 60, 0);
+}
+
+#yesornogame #container1_yn img {
+    width:100%;
+    max-height:400px;
+    height:100%;
+    border-right: 3px solid var(--dark-blue);
+    object-fit: cover;
+}
+
+#yesornogame #thumbnail{
+    max-width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
+#yesornogame {
+    width: 90%;
+    min-height:200px;
+    display: flex;
+    justify-content: space-around;
+    border: 3px solid var(--dark-blue);
+    overflow: hidden;
+}
+
+
+#yesornogame #container1_yn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-blue);
+    justify-content: center;
+    width: 50%;
+}
+
+#yesornogame #container2_yn {
+    flex: 1;
+    width: 50%;
+    display: flex;
+    background-color: rgb(211, 218, 210);
+    padding: 20px 20px;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center; 
+    align-content: center;
+}
+
+#yesornogame #container2_yn p, #yesornogame #container2_yn h3{
+    font-size:1rem;
+    width:85%;
+    text-align: left;
+    margin:0 auto;
+}
+
+
+#yesornogame #answer-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+#yesornogame #container2 p{
+    font-size:1rem;
+}
+
+#answer-buttons button{
+    margin:20px;
+}
+
+#score_yesorno{
+    padding:10px 20px;
+    display: grid;
+    place-items: center;
+    background-color: rgb(255, 255, 255);
+    border: var(--dark-blue) 3px solid;
+    border-radius: 20px;
+}
+
+@media (max-width:600px){
+    #yesornogame{
+        flex-direction: column;
+        text-align: center;
+        display: flex;
+    }
+    #yesornogame #container1_yn{
+        width:100%;
+    }
+    #yesornogame #container2_yn{
+        width:100%;
+        padding:0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;
+    }
+
+    #yesornogame #thumbnail{
+        height:200px;
+    }
+
+}
+
+.hidden{
+    display: none;
+}
