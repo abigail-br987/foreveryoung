@@ -403,7 +403,8 @@
     .ue { grid-area: ue; }
 
 .specialgrid2 div{
-    border: 3px solid black
+    border: 3px solid black;
+    min-height:300px;
 }
 
 .specialgrid4 {  display: grid;
