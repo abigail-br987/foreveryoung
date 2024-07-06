@@ -25,11 +25,21 @@
                     <li><a href="https://www.instagram.com/forever_young_voluntariado/" target="_blank">Instagram</a></li>
                     <li><a href="juegos.html">Juegos</a></li>
                     <li><a href="index.html"><img src="assets/logoforeveryoung.jpg" alt="Company Logo"></a></li>
-                    <li><a href="resources.html">Recursos</a></li>
+                    <li class="dropdown">
+                        <a id="resourcesLink">Recursos</a>
+                        <ul class="dropdown-menu" id="dropdownMenu">
+                            <li><a href="derechos.html">Derechos</a></li>
+                            <li><a href="resources.html">Enlaces</a></li>
+                            <li><a href="datos.html">Datos</a></li>
+                            <li><a href="casos.html">Casos</a></li>
+                        </ul>
+                    </li>
                     <li><a href="https://drive.google.com/drive/folders/1gNpCWpx-Tmdrjx7DPJAfCOhkjSf6tyLJ?usp=sharing" target="_blank">Diseños</a></li>
                 </ul>
             </nav>
         </header>
+    
+        <script src="index.js"></script>
         
     
         <div class="space"></div>
@@ -53,7 +63,7 @@
                     El objetivo del juego es aprender y corregir conceptos erróneos comunes sobre temas como el bullying, la salud menstrual, la alimentación, la salud mental, y otros asuntos vitales. Cuando los jugadores responden incorrectamente, el juego proporciona una explicación que ayuda a aclarar el tema.
             </div>
 
-            </p>
+
             <div id="yesornogame" style="position: relative; padding: 0px;">
                 <img id="thumbnail" src="assets/siono_thumbnail-08.png">
                 <img class="startBtn" onClick="start_yesorno()" id="startBtn_yesorno" src="assets/start_button_image.png" style="position: absolute; top: 90%; left: 50%; transform: translate(-50%, -50%);">
@@ -80,16 +90,15 @@
 
         <section style="flex-direction: column;">
             <div>
-            <h4>¡Ordena y Gana!</h4>
-                <p>
-                    ¡Descubre ¡Ordena y Gana! 🌟, el juego que desafiará tu habilidad 
+                <h4>Ordena y Gana</h4>
+                <p>¡Descubre ¡Ordena y Gana! 🌟, el juego que desafiará tu habilidad 
                     con las palabras como nunca antes. En este divertido desafío, tu 
                     objetivo es ordenar letras desordenadas para formar palabras. 
                     Utiliza pistas útiles si te encuentras atascado y prepárate para 
                     desarrollar tu vocabulario mientras te diviertes. ¿Estás listo 
                     para el desafío? ¡Ordena y Gana! 🧠✨
-                </p>
             </div>
+
             <script src="script.js" defer></script>
             <script src="words.js" defer></script>
             <div id="word_scramble_game">
@@ -125,17 +134,30 @@
             </div>
         </section>
         <section style="flex-direction: column;">
-            <p style="width:90%">
-                ¡Valores en Ascenso! En este juego, los valores te llevarán más alto.
-                Los pilares de valores como amor, 
-                resiliencia y responsabilidad que te sostendrán en tu ascenso hacia nuevas alturas.
 
-                </p>
+            <div>
+                <h4>Valores en Ascenso</h4>
+                <p>En este juego, los valores te llevarán más alto. 
+                    Los pilares de valores como amor, resiliencia y responsabilidad te sostendrán en tu ascenso hacia nuevas alturas. 
+                    Los valores son importantes porque guían nuestras acciones y decisiones, 
+                    ayudándonos a mantenernos firmes en momentos de desafío y a tomar decisiones éticas. 
+                    Además, fortalecen nuestras relaciones y nos permiten construir una vida basada en principios sólidos y respetuosos.</p>
+                
+            </div>
+
             <script src="juego_valores.js" defer></script>
             <canvas id="board"></canvas>
             <img src= "assets/start_button_image.png" onclick="start_valores()" id="startBtn_valores" class="startBtn">
         </section>
-        <section>
+        <section style="flex-direction: column;">
+            <div>
+                <h4>Pon a Prueba tu Saber</h4>
+                <p>En este juego, podrás desafiar tus conocimientos sobre la salud de los adolescentes y el trabajo de nuestro voluntariado. 
+                    Responde preguntas sobre temas importantes como la prevención de enfermedades, la salud mental, y los derechos de los adolescentes. 
+                    Cada pregunta te brindará la oportunidad de aprender algo nuevo y reflexionar sobre la importancia de cuidar nuestra salud. 
+                    ¡Demuestra cuánto sabes y aprende aún más mientras juegas!</p>
+                
+            </div>
             <div id="trivia_game">
             <a href="https://abigail-br987.itch.io/juego-de-preguntas-trivia" target="_blank">
                 <img src="assets/start_button_image.png" class="startBtn">
