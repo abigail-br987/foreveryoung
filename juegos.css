@@ -17,7 +17,7 @@
     font-size:1.4rem;
     padding:0px;
     align-self: center;
-}
+} 
 
 #yesornogame #answer-buttons button:nth-child(1){
     background-color: var(--green);

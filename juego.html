@@ -5,95 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yes or No Question Game</title>
 
+    <style>
+
+.memory-game {
+    width: 640px;
+    height: 640px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10%;
+    perspective: 1000px;
+}
+
+.memory-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 5px;
+    background: #1C7CCC;
+    backface-visibility: hidden;
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+    </style>
 
 
 </head>
 
 
 <body>
-    <section>
-        <div>
-            <h3>Yes or No Question Game</h3>
-            <div id="score_yesorno"></div>
-            <div id="question_yesorno"></div>
-            <div id="answer-buttons">
-                <button onclick="answerQuestion_yesorno(true)">Yes</button>
-                <button onclick="answerQuestion_yesorno(false)">No</button>
-            </div>
-        </div>
         
+    <section class="memory-game">
+        <div class="memory-card" data-framework="aurelia">
+        <img class="front-face" src="img/aurelia.svg" alt="Aurelia" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="aurelia">
+        <img class="front-face" src="img/aurelia.svg" alt="Aurelia" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+
+        <div class="memory-card" data-framework="vue">
+        <img class="front-face" src="img/vue.svg" alt="Vue" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="vue">
+        <img class="front-face" src="img/vue.svg" alt="Vue" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+
+        <div class="memory-card" data-framework="angular">
+        <img class="front-face" src="img/angular.svg" alt="Angular" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="angular">
+        <img class="front-face" src="img/angular.svg" alt="Angular" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+
+        <div class="memory-card" data-framework="ember">
+        <img class="front-face" src="img/ember.svg" alt="Ember" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="ember">
+        <img class="front-face" src="img/ember.svg" alt="Ember" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+
+        <div class="memory-card" data-framework="backbone">
+        <img class="front-face" src="img/backbone.svg" alt="Backbone" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="backbone">
+        <img class="front-face" src="img/backbone.svg" alt="Backbone" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+
+        <div class="memory-card" data-framework="react">
+        <img class="front-face" src="img/react.svg" alt="React" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
+        <div class="memory-card" data-framework="react">
+        <img class="front-face" src="img/react.svg" alt="React" />
+        <img class="back-face" src="img/js-badge.svg" alt="JS Badge" />
+        </div>
     </section>
 
+
     <script>
-        const questions_yesorno = [
-    { question: "Do you enjoy learning new things?", answer: true, explanation: "Learning new things keeps the brain active and healthy." },
-    { question: "Have you ever traveled to another country?", answer: true, explanation: "Traveling broadens your perspective and exposes you to different cultures." },
-    { question: "Do you like spicy food?", answer: true, explanation: "Spicy food can boost metabolism and enhance flavor." },
-    { question: "Have you ever read a book in one day?", answer: true, explanation: "Reading a book in one day shows great focus and interest." },
-    { question: "Do you believe in ghosts?", answer: false, explanation: "Ghosts are generally considered to be a product of folklore and superstition." },
-    { question: "Have you ever climbed a mountain?", answer: true, explanation: "Climbing mountains is a great physical and mental challenge." },
-    { question: "Do you enjoy rainy weather?", answer: true, explanation: "Rainy weather can be soothing and beneficial for nature." },
-    { question: "Have you ever ridden a horse?", answer: true, explanation: "Horse riding can be a thrilling and enjoyable experience." },
-    { question: "Do you like watching sports?", answer: true, explanation: "Watching sports can be exciting and a way to connect with others." },
-    { question: "Have you ever met a celebrity?", answer: true, explanation: "Meeting a celebrity can be a memorable experience." }
-];
+    const cards = document.querySelectorAll('.memory-card');
 
-// Initialize variables
-let currentQuestionIndex_yesorno = 0;
-let totalQuestions_yesorno = questions_yesorno.length;
-let score_yesorno = [];
+    let hasFlippedCard = false;
+    let lockBoard = false;
+    let firstCard, secondCard;
 
-// Function to display the current question
-function displayQuestion_yesorno() {
-    if (currentQuestionIndex_yesorno < totalQuestions_yesorno) {
-        document.getElementById("question_yesorno").textContent = questions_yesorno[currentQuestionIndex_yesorno].question;
-    } else {
-        endGame_yesorno();
+    function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+
+    this.classList.add('flip');
+
+    if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = this;
+
+        return;
     }
-}
 
-// Function to update the score display
-function updateScore_yesorno() {
-    document.getElementById("score_yesorno").textContent = score_yesorno.join(" ");
-}
-
-// Function to handle user answers
-function answerQuestion_yesorno(answer_yesorno) {
-    let correctAnswer_yesorno = questions_yesorno[currentQuestionIndex_yesorno].answer;
-    if (answer_yesorno === correctAnswer_yesorno) {
-        score_yesorno.push("O");
-    } else {
-        score_yesorno.push("X");
+    secondCard = this;
+    checkForMatch();
     }
-    currentQuestionIndex_yesorno++;
-    updateScore_yesorno();
-    displayQuestion_yesorno();
-}
 
-// Function to end the game and display results
-function endGame_yesorno() {
-    document.getElementById("question_yesorno").textContent = "Thank you for playing!";
-    document.getElementById("answer-buttons").style.display = "none";
-    displayResults_yesorno();
-}
+    function checkForMatch() {
+    let isMatch = firstCard.dataset.framework === secondCard.dataset.framework;
 
-// Function to display results
-function displayResults_yesorno() {
-    let results_yesorno = "<h2>Results</h2>";
-    for (let i_yesorno = 0; i_yesorno < totalQuestions_yesorno; i_yesorno++) {
-        let correctAnswer_yesorno = questions_yesorno[i_yesorno].answer ? "Yes" : "No";
-        let resultClass_yesorno = score_yesorno[i_yesorno] === "O" ? "correct" : "incorrect";
-        results_yesorno += `<p class="${resultClass_yesorno}">${questions_yesorno[i_yesorno].question} - Your answer: ${score_yesorno[i_yesorno] === "O" ? correctAnswer_yesorno : (correctAnswer_yesorno === "Yes" ? "No" : "Yes")}, Correct answer: ${correctAnswer_yesorno}`;
-        if (score_yesorno[i_yesorno] === "X") {
-            results_yesorno += `<br>Explanation: ${questions_yesorno[i_yesorno].explanation}`;
-        }
-        results_yesorno += `</p>`;
+    isMatch ? disableCards() : unflipCards();
     }
-    document.body.innerHTML += results_yesorno;
-}
 
-displayQuestion_yesorno();
-updateScore_yesorno();
+    function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+
+    resetBoard();
+    }
+
+    function unflipCards() {
+    lockBoard = true;
+
+    setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+
+        resetBoard();
+    }, 1500);
+    }
+
+    function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+    }
+
+    (function shuffle() {
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random() * 12);
+        card.style.order = randomPos;
+    });
+    })();
+
+    cards.forEach(card => card.addEventListener('click', flipCard));
     </script>
 </body>
 </html>
