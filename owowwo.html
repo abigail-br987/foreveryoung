@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clasificación de Métodos Anticonceptivos</title>
+<style>
+    #contenedor-ma {
+        display: none; /* Initially hide the containers */
+        display: flex;
+        justify-content: space-between;
+    }
+    .contenedor-drop-ma {
+        width: 30%;
+        min-height: 100px;
+        border: 2px dashed #ccc;
+        margin: 10px;
+        padding: 10px;
+    }
+    .draggable-ma {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        cursor: grab;
+        background-color: #f0f0f0;
+    }
+</style>
+</head>
+<body>
+    <section>
+        <div id="ma_game">
+            
+            <h1>Clasificación de Métodos Anticonceptivos</h1>
+
+            <button onclick="startGame()">Start Game</button>
+            
+            <div id="contenedor-ma">
+                <div id="largo-duracion" class="contenedor-drop-ma">
+                    <h2>Métodos de Largo Duración</h2>
+                    <!-- Aquí se pueden soltar los métodos de largo duración -->
+                </div>
+                <div id="media-duracion" class="contenedor-drop-ma">
+                    <h2>Métodos de Media Duración</h2>
+                    <!-- Aquí se pueden soltar los métodos de media duración -->
+                </div>
+                <div id="corta-duracion" class="contenedor-drop-ma">
+                    <h2>Métodos de Corta Duración</h2>
+                    <!-- Aquí se pueden soltar los métodos de corta duración -->
+                </div>
+            </div>
+
+            <div id="draggable-items">
+                <div id="item1" class="draggable-ma" draggable="true" data-name="DIU" data-duration="largo-duracion" data-efficiency="99%">Dispositivo Intrauterino</div>
+                <div id="item2" class="draggable-ma" draggable="true" data-name="Implantes" data-duration="larga-duracion" data-efficiency="99%">Implantes</div>
+                <div id="item3" class="draggable-ma" draggable="true" data-name="Vasectomia" data-duration="larga-duracion" data-efficiency="99%">Vasectomía</div>
+                <div id="item4" class="draggable-ma" draggable="true" data-name="Esterilizacion" data-duration="larga-duracion" data-efficiency="99%">Esterilización</div>
+                <div id="item5" class="draggable-ma" draggable="true" data-name="Inyectables" data-duration="corta-duracion" data-efficiency="94%">Inyecciones</div>
+                <div id="item6" class="draggable-ma" draggable="true" data-name="Pildoras" data-duration="corta-duracion" data-efficiency="91%">Píldoras</div>
+                <div id="item7" class="draggable-ma" draggable="true" data-name="Minipildoras" data-duration="corta-duracion" data-efficiency="90%">Minipíldoras</div>
+                <div id="item8" class="draggable-ma" draggable="true" data-name="Anillos" data-duration="corta-duracion" data-efficiency="91%">Anillo</div>
+                <div id="item9" class="draggable-ma" draggable="true" data-name="Parches" data-duration="corta-duracion" data-efficiency="91%">Parches</div>
+                <div id="item10" class="draggable-ma" draggable="true" data-name="CondonM" data-duration="muycorta-duracion" data-efficiency="82%">Condón Masculino</div>
+                <div id="item11" class="draggable-ma" draggable="true" data-name="CondonF" data-duration="muycorta-duracion" data-efficiency="79%">Condón Femenino</div>
+                <div id="item12" class="draggable-ma" draggable="true" data-name="Espermicidas" data-duration="muycorta-duracion" data-efficiency="72%">Espermicidas</div> 
+                <div id="item13" class="draggable-ma" draggable="true" data-name="Periodo Fertil" data-duration="muycorta-duracion" data-efficiency="76%">Periodo Fertil</div>    
+
+            </div>
+
+            <button onclick="sendResponses()">Send Responses</button>
+        </div>
+    </section>
+
+    <script>
+        let gameStarted = false;
+
+        function startGame() {
+            document.getElementById('contenedor-ma').style.display = 'flex';
+            gameStarted = true;
+        }
+
+        function sendResponses() {
+            if (!gameStarted) {
+                alert('Please start the game first!');
+                return;
+            }
+
+            // Check responses and handle accordingly
+            const contenedores = document.querySelectorAll('.contenedor-drop-ma');
+
+            contenedores.forEach(contenedor => {
+                const items = contenedor.querySelectorAll('.draggable-ma');
+
+                items.forEach(item => {
+                    const expectedDuration = item.dataset.duration;
+                    const actualParentId = item.parentElement.id;
+                    const efficiency = item.dataset.efficiency;
+                    const methodName = item.dataset.name;
+
+                    // Example of checking correctness
+                    if (expectedDuration === actualParentId) {
+                        item.style.backgroundColor = 'lightgreen';
+                    } else {
+                        item.style.backgroundColor = 'pink';
+                    }
+
+                    // Display efficiency and method name on the same line
+                    const p = document.createElement('p');
+                    p.innerText = `Método: ${methodName} - Eficacia: ${efficiency}`;
+                    
+                    contenedor.appendChild(p);
+                });
+            });
+        }
+
+        const draggableItems = document.querySelectorAll('.draggable-ma');
+        const contenedorDrop = document.querySelectorAll('.contenedor-drop-ma');
+
+        draggableItems.forEach(item => {
+            item.addEventListener('dragstart', dragStart);
+        });
+
+        contenedorDrop.forEach(contenedor => {
+            contenedor.addEventListener('dragover', dragOver);
+            contenedor.addEventListener('dragenter', dragEnter);
+            contenedor.addEventListener('dragleave', dragLeave);
+            contenedor.addEventListener('drop', drop);
+        });
+
+        function dragStart(event) {
+            event.dataTransfer.setData('text', event.target.id);
+        }
+
+        function dragOver(event) {
+            event.preventDefault();
+        }
+
+        function dragEnter(event) {
+            event.preventDefault();
+            if (event.target.classList.contains('contenedor-drop-ma')) {
+                event.target.style.border = '2px solid #333';
+            }
+        }
+
+        function dragLeave(event) {
+            if (event.target.classList.contains('contenedor-drop-ma')) {
+                event.target.style.border = '2px dashed #ccc';
+            }
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData('text');
+            const draggedItem = document.getElementById(data);
+            if (event.target.classList.contains('contenedor-drop-ma')) {
+                event.target.appendChild(draggedItem);
+                event.target.style.border = '2px dashed #ccc';
+                // Optionally, you can handle specific actions based on the type of drop container
+                // For example, you can check event.target.id or event.target.getAttribute('data-duration')
+            }
+        }
+    </script>
+</body>
+</html>

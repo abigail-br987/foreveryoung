@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forever Young Voluntariado</title>
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <link rel="icon" href="logoforeveryoung.jpg" sizes="32x32" type="image/png">
+    <link href="pdf.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header id="header">
+        <nav role="navigation">
+            
+            <ul>
+                <li><a href="https://www.instagram.com/forever_young_voluntariado/" target="_blank">Instagram</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="index.html"><img src="assets/logoforeveryoung.jpg" alt="Company Logo"></a></li>
+                <li class="dropdown">
+                    <a id="resourcesLink">Recursos</a>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li><a href="derechos.html">Derechos</a></li>
+                        <li><a href="resources.html">Enlaces</a></li>
+                        <li><a href="datos.html">Datos</a></li>
+                        <li><a href="casos.html">Casos</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://drive.google.com/drive/folders/1gNpCWpx-Tmdrjx7DPJAfCOhkjSf6tyLJ?usp=sharing" target="_blank">Diseños</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script src="index.js"></script>
+    
+
+    <div class="space"></div>
+    <div class="cover">
+        <img src="cover.png" class="border" style="width:100%">
+        <div>
+            <h4>MiniLibro de Apoyo</h4>
+            <p>Abrazando el Cambio es un minilibro de transformación y recuperación. En este libro comparto mi historia de lucha contra la anorexia, pero lo más importante es cómo la superé con autocompasión y perseverancia. El proceso de recuperación no fue fácil y hubo momentos en los que sentí que las cosas se estaban desmoronando, especialmente cuando era un perfeccionista. Sin embargo, hubo algunas técnicas que me ayudaron a elevarme por encima de todo (que también comparto en el libro). Quiero brindar esperanza y fuerza a quienes están en su propio camino. ⭐</p>
+            <button onClick="start_book()" style="margin-top:30px">Leer!</button>
+        </div>
+    </div>
+
+    <div class="top-bar">
+        <button class="btn" id="prev-page" style="margin:0px 10px 0px 10px">
+            <i class="fas fa-arrow-circle-left"></i> Prev Page
+        </button>
+        <button class="btn" id="next-page" style="margin:0px 10px 0px 10px">
+            <i class="fas fa-arrow-circle-right"></i> Next Page
+        </button>
+        <span class="page-info" style="margin:0px 10px 0px 10px">
+            Pages <span id="page-num"></span> & <span id="page-num-next"></span> of <span id="page-count"></span>
+        </span>
+    </div>
+    
+    <div class="canvas-container">
+        <canvas id="pdf-render-1"></canvas>
+        <canvas id="pdf-render-2"></canvas>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="pdf.js"></script>
+</body>
+</html>
