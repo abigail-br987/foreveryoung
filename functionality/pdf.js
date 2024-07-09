@@ -9,7 +9,7 @@ function start_book(){
     document.querySelector(".top-bar").style.display = "block";
     document.querySelector(".canvas-container").classList.add("border");
 
-    const url = "libro2.pdf";
+    const url = "../assets/libro2.pdf";
     let pdfDoc = null,
         pageNum = 2,
         pageIsRendering = false,

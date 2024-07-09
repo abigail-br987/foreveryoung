@@ -4,7 +4,6 @@ let boardHeight = 576;
 let context;
 
 
-//doodler
 let doodlerWidth = 46;
 let doodlerHeight = 96;
 let doodlerX = boardWidth / 2 - doodlerWidth / 2;
@@ -20,10 +19,9 @@ let doodler = {
     height: doodlerHeight
 }
 
-//physics
 let velocityX = 0;
-let velocityY = 0; //doodler jump speed
-let initialVelocityY = -8; //starting velocity Y
+let velocityY = 0; 
+let initialVelocityY = -8; 
 let gravity = 0.4;
 
 //platforms
@@ -34,11 +32,11 @@ let platformHeight = 18;
 let score_valores = 0;
 let maxScore_valores = 0;
 let gameOver = false;
-let start_game_valores = document.getElementById("startBtn_valores")
-let platform_images = ["/amor.png", "/lealtad.png",
-    "/honestidad.png", "/amistad.png", "/respeto.png", "/honor.png", 
-    "/honradez.png", "/justicia.png", "/libertad.png", "/solidaridad.png",
-    "/paz.png", "/integridad.png"];
+let start_game_valores = document.getElementById(".startBtn_valores")
+let platform_images = ["../assets/amor.png", "../assets/lealtad.png",
+    "../assets/honestidad.png", "../assets/amistad.png", "../assets/respeto.png", "../assets/honor.png", 
+    "../assets/honradez.png", "../assets/justicia.png", "../assets/libertad.png", "../assets/solidaridad.png",
+    "../assets/paz.png", "../assets/integridad.png"];
 
 
 window.onload = function () {
@@ -47,14 +45,14 @@ window.onload = function () {
     board.width = boardWidth;
     context = board.getContext("2d"); //used for drawing on the board
     doodlerRightImg = new Image();
-    doodlerRightImg.src = "./personita-right.png";
+    doodlerRightImg.src = "../assets/personita-right.png";
     doodler.img = doodlerRightImg;
     doodlerRightImg.onload = function () {
         context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height);
     }
 
     doodlerLeftImg = new Image();
-    doodlerLeftImg.src = "./personita-left.png";
+    doodlerLeftImg.src = "../assets/personita-left.png";
     velocityY = initialVelocityY;
     placePlatforms();
 
@@ -69,14 +67,14 @@ function start_valores() {
     board.width = boardWidth;
     context = board.getContext("2d"); //used for drawing on the board
     doodlerRightImg = new Image();
-    doodlerRightImg.src = " /personita-right.png";
+    doodlerRightImg.src = "../assets/personita-right.png";
     doodler.img = doodlerRightImg;
     doodlerRightImg.onload = function () {
         context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height);
     }
 
     doodlerLeftImg = new Image();
-    doodlerLeftImg.src = " /personita-left.png";
+    doodlerLeftImg.src = "../assets/personita-left.png";
 
     velocityY = initialVelocityY;
     placePlatforms();

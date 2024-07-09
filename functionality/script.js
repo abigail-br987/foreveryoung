@@ -1,10 +1,10 @@
 const animation = [ // para que aplauda
-    "assets/personita1.png",
-    "assets/personita2.png",
-    "assets/personita3.png",
-    "assets/personita4.png",
-    "assets/personita5.png",
-    "assets/personita7.png"
+    "../assets/personita1.png",
+    "../assets/personita2.png",
+    "../assets/personita3.png",
+    "../assets/personita4.png",
+    "../assets/personita5.png",
+    "../assets/personita7.png"
 ];
 
 const wordText = document.querySelector(".word"),
@@ -33,7 +33,7 @@ let score_ordena = 0;
 
 container1.style.display = "none";
 container2.style.display = "none";
-wholething.style.backgroundImage = "url('assets/ordena_y_gana_thumbnail.png')";
+wholething.style.backgroundImage = "url('../assets/ordena_y_gana_thumbnail.png')";
 box_text.innerHTML = `¡Con 10 aciertos ganas! ¡Tú puedes!`;
 
 const initTimer = (maxTime) => {
@@ -64,7 +64,7 @@ const endGame = () => {
     container1.style.display = "none";
     container2.style.display = "none";
     box_content.classList.add("cajita-correct");
-    wholething.style.backgroundImage = "url('assets/paralaproxima-03.png')";
+    wholething.style.backgroundImage = "url('../assets/paralaproxima-03.png')";
 };
 
 const winGame = () => {
@@ -72,7 +72,7 @@ const winGame = () => {
     container1.style.display = "none";
     container2.style.display = "none";
     box_content.classList.add("cajita-correct");
-    wholething.style.backgroundImage = "url('assets/felicidades-03.png')";
+    wholething.style.backgroundImage = "url('../assets/felicidades-03.png')";
 };
 
 const initGame = () => {

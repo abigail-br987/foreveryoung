@@ -1,9 +1,9 @@
 const animation_yn = [
-    "assets/personita_yn-02.png",
-    "assets/personita_yn-03.png",
-    "assets/personita_yn-04.png",
-    "assets/personita_yn-05.png",
-    "assets/personita_yn-06.png"
+    "../assets/personita_yn-02.png",
+    "../assets/personita_yn-03.png",
+    "../assets/personita_yn-04.png",
+    "../assets/personita_yn-05.png",
+    "../assets/personita_yn-06.png"
 ];
 
 const questions_yesorno = [

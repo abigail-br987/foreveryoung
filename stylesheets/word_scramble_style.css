@@ -7,7 +7,7 @@
   
 @font-face {
   font-family: 'Cheese';
-  src: url('assets/cheese.ttf') format('truetype');
+  src: url('../assets/cheese.ttf') format('truetype');
 }
 
 @font-face {
@@ -34,7 +34,7 @@ body{
   display: flex;
   font-size:0.8rem;
   max-width:574px;
-  background-image: url("assets/pizarrajuego-09.png");
+  background-image: url("../assets/pizarrajuego-09.png");
   background-position: center center;
   background-size: cover;
 }
@@ -125,7 +125,7 @@ body{
 
 
 #trivia_game{
-  background-image: url("assets/ponapruebatusaber-01.png");
+  background-image: url("../assets/ponapruebatusaber-01.png");
   background-size: cover;
   
   aspect-ratio: 10 / 7; 

@@ -1,6 +1,6 @@
     @font-face  {
         font-family: 'Cheese';
-        src: url('assets/cheese.ttf') format('truetype');
+        src: url('../assets/cheese.ttf') format('truetype');
     }
     
     @font-face {
