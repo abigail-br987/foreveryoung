@@ -6,12 +6,12 @@ const scenarios = [
     },
     {
         question: "Tu amiga esta considerando usar un DIU (dispositivo intrauterino) para protegerse pero tiene miedo",
-        options: ["La desanimo porque también tengo mis dudas", "Le digo que el DIU es seguro y  no se oxida ni traspasa ni es radiactivo"],
+        options: ["Le digo que el DIU es seguro y  no se oxida ni traspasa ni es radiactivo", "La desanimo porque también tengo mis dudas"],
         correct: 0
     },
     {
         question: "Tu pareja te dice que no le gusta usar condón. ¿Qué haces?",
-        options: ["Aceptas y no usas protección", "Insistes en usar condón para proteger ambos de infecciones y embarazos no planificados"],
+        options: ["Insistes en usar condón para proteger ambos de infecciones y embarazos no planificados", "Aceptas y no usas protección" ],
         correct: 1
     },
     {
@@ -26,8 +26,8 @@ const scenarios = [
     },
     {
         question: "Crees que podrías estar embarazada aunque usas un método anticonceptivo. ¿Qué haces?",
-        options: ["Esperas y no haces nada", "Te haces una prueba de embarazo y consultas con un profesional de salud"],
-        correct: 1
+        options: ["Te haces una prueba de embarazo y consultas con un profesional de salud", "Esperas y no haces nada" ],
+        correct: 0
     },
     {
         question: "Tu amigo te dice que usar condón es incómodo y que no lo va a usar con su pareja",
@@ -36,8 +36,8 @@ const scenarios = [
     },
     {
         question: "Escuchas a alguien decir que los métodos anticonceptivos hormonales son peligrosos. ¿Qué haces?",
-        options: ["Le crees sin investigar", "Buscas información fiable y hablas con un profesional de salud"],
-        correct: 1
+        options: ["Buscas información fiable y hablas con un profesional de salud","Le crees sin investigar"],
+        correct: 0
     },
     {
         question: "Quieres iniciar tu vida sexual pero no sabes qué método anticonceptivo usar. ¿Qué haces?",

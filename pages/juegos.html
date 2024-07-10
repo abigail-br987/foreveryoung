@@ -49,66 +49,7 @@
             </div>
         </section>
 
-        <section id="bc_gameSection">
-
-                <img src="../assets/start_button_image.png" id="startBtn">
-
-                <div id="bc_game" style="display:none; width:80%; margin:0px;">
-
-                    <p id="bc_question"></p>
-                    <div id="gs-btn-container">
-                        <button id="option1" class="btn btn-option"></button>
-                        <button id="option2" class="btn btn-option"></button>
-                    </div>
-
-                    <p id="result"></p>
-                    <p id="score">Puntaje: 0/10</p>
-                    <p id="time">Tiempo: 0 seconds</p>
-                </div>
-
-            <script src="../functionality/bc_game.js"></script>
-        </section>
         
-        <section>
-            <div id="ma_game" class="border">
-                <div id="ma_game_cover">
-                    <h4>Clasificación de Métodos Anticonceptivos</h4>
-                </div>
-                
-                <div id="contenedor-ma">
-                    <div id="larga-duracion" class="contenedor-drop-ma">
-                        <h3>Métodos de Larga Duración</h3>
-                    </div>
-                    <div id="corta-duracion" class="contenedor-drop-ma">
-                        <h3>Métodos de Corta Duración</h3>
-                    </div>
-                    <div id="muy-corta-duracion" class="contenedor-drop-ma">
-                        <h3>Métodos de Muy Corta Duración</h3>
-                    </div>
-                </div>
-
-                <div id="draggable-items">
-                    <div id="item1" class="draggable-ma" draggable="true" data-name="DIU" data-duration="larga-duracion" data-efficiency="99%">El DIU</div>
-                    <div id="item2" class="draggable-ma" draggable="true" data-name="Implantes" data-duration="larga-duracion" data-efficiency="99%">Implantes</div>
-                    <div id="item3" class="draggable-ma" draggable="true" data-name="Vasectomia" data-duration="larga-duracion" data-efficiency="99%">Vasectomía</div>
-                    <div id="item4" class="draggable-ma" draggable="true" data-name="Esterilizacion" data-duration="larga-duracion" data-efficiency="99%">Esterilización</div>
-                    <div id="item5" class="draggable-ma" draggable="true" data-name="Inyectables" data-duration="corta-duracion" data-efficiency="94%">Inyecciones</div>
-                    <div id="item6" class="draggable-ma" draggable="true" data-name="Pildoras" data-duration="corta-duracion" data-efficiency="91%">Píldoras</div>
-                    <div id="item7" class="draggable-ma" draggable="true" data-name="Minipildoras" data-duration="corta-duracion" data-efficiency="90%">Minipíldoras</div>
-                    <div id="item8" class="draggable-ma" draggable="true" data-name="Anillos" data-duration="corta-duracion" data-efficiency="91%">Anillo</div>
-                    <div id="item9" class="draggable-ma" draggable="true" data-name="Parches" data-duration="corta-duracion" data-efficiency="91%">Parches</div>
-                    <div id="item10" class="draggable-ma" draggable="true" data-name="CondonM" data-duration="muy-corta-duracion" data-efficiency="82%">Condón Masculino</div>
-                    <div id="item11" class="draggable-ma" draggable="true" data-name="CondonF" data-duration="muy-corta-duracion" data-efficiency="79%">Condón Femenino</div>
-                    <div id="item12" class="draggable-ma" draggable="true" data-name="Espermicidas" data-duration="muy-corta-duracion" data-efficiency="72%">Espermicidas</div> 
-                    <div id="item13" class="draggable-ma" draggable="true" data-name="Periodo Fertil" data-duration="muy-corta-duracion" data-efficiency="76%">Periodo Fertil</div>    
-                </div>
-                <button id="responses-ma" onclick="sendResponses_ma()">Send Responses</button>
-
-                <script src="../functionality/ma_game.js"></script>
-            </div>
-        </section>
-
-
 
         <section style="flex-direction: column;">
             <div>
@@ -206,6 +147,64 @@
             <script src="../functionality/memorygame.js"></script>
         </section>
         
+        <section id="bc_gameSection">
+
+            <img src="../assets/start_button_image.png" id="startBtn">
+
+            <div id="bc_game" style="display:none; width:80%; margin:0px;">
+
+                <p id="bc_question"></p>
+                <div id="gs-btn-container">
+                    <button id="option1" class="btn btn-option"></button>
+                    <button id="option2" class="btn btn-option"></button>
+                </div>
+
+                <p id="result"></p>
+                <p id="score">Puntaje: 0/10</p>
+                <p id="time">Tiempo: 0 seconds</p>
+            </div>
+
+        <script src="../functionality/bc_game.js"></script>
+    </section>
+    
+    <section>
+        <div id="ma_game" class="border">
+            <div id="ma_game_cover">
+                <h4>Clasificación de Métodos Anticonceptivos</h4>
+            </div>
+            
+            <div id="contenedor-ma">
+                <div id="larga-duracion" class="contenedor-drop-ma">
+                    <h3>Métodos de Larga Duración</h3>
+                </div>
+                <div id="corta-duracion" class="contenedor-drop-ma">
+                    <h3>Métodos de Corta Duración</h3>
+                </div>
+                <div id="muy-corta-duracion" class="contenedor-drop-ma">
+                    <h3>Métodos de Muy Corta Duración</h3>
+                </div>
+            </div>
+
+            <div id="draggable-items">
+                <div id="item1" class="draggable-ma" draggable="true" data-name="DIU" data-duration="larga-duracion" data-efficiency="99%">El DIU</div>
+                <div id="item2" class="draggable-ma" draggable="true" data-name="Implantes" data-duration="larga-duracion" data-efficiency="99%">Implantes</div>
+                <div id="item3" class="draggable-ma" draggable="true" data-name="Vasectomia" data-duration="larga-duracion" data-efficiency="99%">Vasectomía</div>
+                <div id="item4" class="draggable-ma" draggable="true" data-name="Esterilizacion" data-duration="larga-duracion" data-efficiency="99%">Esterilización</div>
+                <div id="item5" class="draggable-ma" draggable="true" data-name="Inyectables" data-duration="corta-duracion" data-efficiency="94%">Inyecciones</div>
+                <div id="item6" class="draggable-ma" draggable="true" data-name="Pildoras" data-duration="corta-duracion" data-efficiency="91%">Píldoras</div>
+                <div id="item7" class="draggable-ma" draggable="true" data-name="Minipildoras" data-duration="corta-duracion" data-efficiency="90%">Minipíldoras</div>
+                <div id="item8" class="draggable-ma" draggable="true" data-name="Anillos" data-duration="corta-duracion" data-efficiency="91%">Anillo</div>
+                <div id="item9" class="draggable-ma" draggable="true" data-name="Parches" data-duration="corta-duracion" data-efficiency="91%">Parches</div>
+                <div id="item10" class="draggable-ma" draggable="true" data-name="CondonM" data-duration="muy-corta-duracion" data-efficiency="82%">Condón Masculino</div>
+                <div id="item11" class="draggable-ma" draggable="true" data-name="CondonF" data-duration="muy-corta-duracion" data-efficiency="79%">Condón Femenino</div>
+                <div id="item12" class="draggable-ma" draggable="true" data-name="Espermicidas" data-duration="muy-corta-duracion" data-efficiency="72%">Espermicidas</div> 
+                <div id="item13" class="draggable-ma" draggable="true" data-name="Periodo Fertil" data-duration="muy-corta-duracion" data-efficiency="76%">Periodo Fertil</div>    
+            </div>
+            <button id="responses-ma" onclick="sendResponses_ma()">Send Responses</button>
+
+            <script src="../functionality/ma_game.js"></script>
+        </div>
+    </section>
 
         <section style="flex-direction: column;">
             <div>
