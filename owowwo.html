@@ -1,162 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clasificación de Métodos Anticonceptivos</title>
-<style>
-    #contenedor-ma {
-        display: none; /* Initially hide the containers */
-        display: flex;
-        justify-content: space-between;
-    }
-    .contenedor-drop-ma {
-        width: 30%;
-        min-height: 100px;
-        border: 2px dashed #ccc;
-        margin: 10px;
-        padding: 10px;
-    }
-    .draggable-ma {
-        margin: 10px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        cursor: grab;
-        background-color: #f0f0f0;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scenario Game</title>
+    <style>
+        
+
+        #gameSection{
+            min-width:1024px;
+            background-color: yellow;
+            max-width:90%;
+        }
+        
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .btn-start {
+            background-color: #4CAF50;
+        }
+        gs-btn-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 10px;
+            width: 100%;
+            background-color: red;
+        }
+
+        .btn-option {
+            background-color: #2196F3;
+            padding: 10px; 
+            border: none;
+            cursor: pointer;
+            width:40%;
+            transition: background-color 0.3s ease;
+            text-align: center; 
+        }
+
+        .btn-correct {
+            background-color: green !important;
+        }
+        .btn-incorrect {
+            background-color: red !important;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+    </style>
 </head>
 <body>
     <section>
-        <div id="ma_game">
-            
-            <h1>Clasificación de Métodos Anticonceptivos</h1>
-
-            <button onclick="startGame()">Start Game</button>
-            
-            <div id="contenedor-ma">
-                <div id="largo-duracion" class="contenedor-drop-ma">
-                    <h2>Métodos de Largo Duración</h2>
-                    <!-- Aquí se pueden soltar los métodos de largo duración -->
+        <div  id="gameSection">
+            <button id="startBtn" class="btn btn-start">Start</button>
+            <div id="game" style="display:none;">
+                <p id="question"></p>
+                <div id="gs-btn-container">
+                    <button id="option1" class="btn btn-option"></button>
+                    <button id="option2" class="btn btn-option"></button>
                 </div>
-                <div id="media-duracion" class="contenedor-drop-ma">
-                    <h2>Métodos de Media Duración</h2>
-                    <!-- Aquí se pueden soltar los métodos de media duración -->
-                </div>
-                <div id="corta-duracion" class="contenedor-drop-ma">
-                    <h2>Métodos de Corta Duración</h2>
-                    <!-- Aquí se pueden soltar los métodos de corta duración -->
-                </div>
+                <p id="result"></p>
+                <p id="score">Score: 0</p>
+                <p id="time">Time: 0 seconds</p>
             </div>
-
-            <div id="draggable-items">
-                <div id="item1" class="draggable-ma" draggable="true" data-name="DIU" data-duration="largo-duracion" data-efficiency="99%">Dispositivo Intrauterino</div>
-                <div id="item2" class="draggable-ma" draggable="true" data-name="Implantes" data-duration="larga-duracion" data-efficiency="99%">Implantes</div>
-                <div id="item3" class="draggable-ma" draggable="true" data-name="Vasectomia" data-duration="larga-duracion" data-efficiency="99%">Vasectomía</div>
-                <div id="item4" class="draggable-ma" draggable="true" data-name="Esterilizacion" data-duration="larga-duracion" data-efficiency="99%">Esterilización</div>
-                <div id="item5" class="draggable-ma" draggable="true" data-name="Inyectables" data-duration="corta-duracion" data-efficiency="94%">Inyecciones</div>
-                <div id="item6" class="draggable-ma" draggable="true" data-name="Pildoras" data-duration="corta-duracion" data-efficiency="91%">Píldoras</div>
-                <div id="item7" class="draggable-ma" draggable="true" data-name="Minipildoras" data-duration="corta-duracion" data-efficiency="90%">Minipíldoras</div>
-                <div id="item8" class="draggable-ma" draggable="true" data-name="Anillos" data-duration="corta-duracion" data-efficiency="91%">Anillo</div>
-                <div id="item9" class="draggable-ma" draggable="true" data-name="Parches" data-duration="corta-duracion" data-efficiency="91%">Parches</div>
-                <div id="item10" class="draggable-ma" draggable="true" data-name="CondonM" data-duration="muycorta-duracion" data-efficiency="82%">Condón Masculino</div>
-                <div id="item11" class="draggable-ma" draggable="true" data-name="CondonF" data-duration="muycorta-duracion" data-efficiency="79%">Condón Femenino</div>
-                <div id="item12" class="draggable-ma" draggable="true" data-name="Espermicidas" data-duration="muycorta-duracion" data-efficiency="72%">Espermicidas</div> 
-                <div id="item13" class="draggable-ma" draggable="true" data-name="Periodo Fertil" data-duration="muycorta-duracion" data-efficiency="76%">Periodo Fertil</div>    
-
-            </div>
-
-            <button onclick="sendResponses()">Send Responses</button>
         </div>
     </section>
-
+    
     <script>
-        let gameStarted = false;
+        const scenarios = [
+            {
+                question: "Tu amiga es sexualmente activa y no se quiere quedar embarazada. También, es olvidadiza y le cuesta mantener una rutina. ¿Qué metodo anticonceptivo le recomendarías? ",
+                options: ["Tomar pastillas anticonceptivas", "Usar un implante anticonceptivo a largo plazo"],
+                correct: 1
+            },
+            {
+                question: "Tu amiga esta considerando usar un DIU (dispositivo intrauterino) para protegerse pero tiene miedo",
+                options: ["La desanimo porque también tengo mis dudas", "Le digo que el DIU es seguro y  no se oxida ni traspasa ni es radiactivo"],
+                correct: 0
+            },
+            {
+                question: "Tu pareja te dice que no le gusta usar condón. ¿Qué haces?",
+                options: ["Aceptas y no usas protección", "Insistes en usar condón para proteger ambos de infecciones y embarazos no planificados"],
+                correct: 1
+            },
+            {
+                question: "Estás en una relación y consideras cambiar tu método anticonceptivo. ¿Qué haces?",
+                options: ["Eligo el primero que encuentre sin pensarlo mucho", "Hablo con un profesional de salud para encontrar el mejor método para mi"],
+                correct: 1
+            },
+            {
+                question: "Has olvidado tomar tu píldora anticonceptiva un día. ¿Qué haces?",
+                options: ["No haces nada y esperas a la próxima dosis", "Usar protección adicional y tomar la píldora tan pronto como te acuerdes"],
+                correct: 1
+            },
+            {
+                question: "Crees que podrías estar embarazada aunque usas un método anticonceptivo. ¿Qué haces?",
+                options: ["Esperas y no haces nada", "Te haces una prueba de embarazo y consultas con un profesional de salud"],
+                correct: 1
+            },
+            {
+                question: "Tu amigo te dice que usar condón es incómodo y que no lo va a usar con su pareja",
+                options: ["Le digo que pienso lo mismo y el preservativo es mucha cosa", "Le digo usar preservativo es respeto y cuidado a si mismo y a su pareja"],
+                correct: 1
+            },
+            {
+                question: "Escuchas a alguien decir que los métodos anticonceptivos hormonales son peligrosos. ¿Qué haces?",
+                options: ["Le crees sin investigar", "Buscas información fiable y hablas con un profesional de salud"],
+                correct: 1
+            },
+            {
+                question: "Quieres iniciar tu vida sexual pero no sabes qué método anticonceptivo usar. ¿Qué haces?",
+                options: ["No usas ningún método porque no vale la pena", "Consultas con un profesional de salud para recibir orientación"],
+                correct: 1
+            },
+            {
+                question: "Tu pareja te dice que usar dos condones es mejor para la protección. ¿Qué haces?",
+                options: ["Le explicas que usar dos condones puede causar que se rompan", "Aceptas usar dos condones"],
+                correct: 0
+            },
+            {
+                question: "Tu amigo piensa que sólo las mujeres se deberían preocupar sobre los anticonceptivos",
+                options: ["Le explico que la relación es de dos y ambos tienen responsabilidad", "Le digo que tiene la razón porque las mujeres son quienes se embarazan"],
+                correct: 0
+            },
+            {
+                question: "Una amiga ha tenido experiencias negativas con métodos en el pasado y ahora está indecisa",
+                options: [
+                    "Le dices que no te preocupes por eso y que no necesita usar ningún método anticonceptivo.", "Le recomiendas que consulte con un profesional de salud para explorar diferentes opciones anticonceptivas y tomar una decisión informada.",
+                    ],
+                correct: 1
+            
+            },
 
-        function startGame() {
-            document.getElementById('contenedor-ma').style.display = 'flex';
-            gameStarted = true;
-        }
+        ];
 
-        function sendResponses() {
-            if (!gameStarted) {
-                alert('Please start the game first!');
-                return;
-            }
+        let currentScenario = 0;
+        let score = 0;
+        let startTime = null;
 
-            // Check responses and handle accordingly
-            const contenedores = document.querySelectorAll('.contenedor-drop-ma');
+        const startBtn = document.getElementById('startBtn');
+        const gameDiv = document.getElementById('game');
+        const questionText = document.getElementById('question');
+        const option1Btn = document.getElementById('option1');
+        const option2Btn = document.getElementById('option2');
+        const resultText = document.getElementById('result');
 
-            contenedores.forEach(contenedor => {
-                const items = contenedor.querySelectorAll('.draggable-ma');
-
-                items.forEach(item => {
-                    const expectedDuration = item.dataset.duration;
-                    const actualParentId = item.parentElement.id;
-                    const efficiency = item.dataset.efficiency;
-                    const methodName = item.dataset.name;
-
-                    // Example of checking correctness
-                    if (expectedDuration === actualParentId) {
-                        item.style.backgroundColor = 'lightgreen';
-                    } else {
-                        item.style.backgroundColor = 'pink';
-                    }
-
-                    // Display efficiency and method name on the same line
-                    const p = document.createElement('p');
-                    p.innerText = `Método: ${methodName} - Eficacia: ${efficiency}`;
-                    
-                    contenedor.appendChild(p);
-                });
-            });
-        }
-
-        const draggableItems = document.querySelectorAll('.draggable-ma');
-        const contenedorDrop = document.querySelectorAll('.contenedor-drop-ma');
-
-        draggableItems.forEach(item => {
-            item.addEventListener('dragstart', dragStart);
+        startBtn.addEventListener('click', () => {
+            startBtn.style.display = 'none';
+            gameDiv.style.display = 'block';
+            loadScenario();
         });
 
-        contenedorDrop.forEach(contenedor => {
-            contenedor.addEventListener('dragover', dragOver);
-            contenedor.addEventListener('dragenter', dragEnter);
-            contenedor.addEventListener('dragleave', dragLeave);
-            contenedor.addEventListener('drop', drop);
-        });
+        option1Btn.addEventListener('click', () => checkAnswer(0));
+        option2Btn.addEventListener('click', () => checkAnswer(1));
 
-        function dragStart(event) {
-            event.dataTransfer.setData('text', event.target.id);
-        }
+        function loadScenario() {
+    if (currentScenario < scenarios.length) {
+        startTime = new Date(); // Start time tracking
 
-        function dragOver(event) {
-            event.preventDefault();
-        }
+        // Shuffle options
+        const options = scenarios[currentScenario].options.slice();
+        const correct = scenarios[currentScenario].correct;
+        const shuffledOptions = shuffleOptions(options, correct);
 
-        function dragEnter(event) {
-            event.preventDefault();
-            if (event.target.classList.contains('contenedor-drop-ma')) {
-                event.target.style.border = '2px solid #333';
+        questionText.textContent = scenarios[currentScenario].question;
+        option1Btn.textContent = shuffledOptions[0].text;
+        option2Btn.textContent = shuffledOptions[1].text;
+        option1Btn.dataset.correct = shuffledOptions[0].isCorrect;
+        option2Btn.dataset.correct = shuffledOptions[1].isCorrect;
+
+        option1Btn.classList.remove('btn-correct', 'btn-incorrect');
+        option2Btn.classList.remove('btn-correct', 'btn-incorrect');
+        resultText.textContent = '';  
+
+        // Update time display every second
+        setInterval(() => {
+            if (startTime) {
+                const currentTime = new Date();
+                const elapsedTime = (currentTime - startTime) / 1000; // in seconds
+                document.getElementById('time').textContent = `Time: ${elapsedTime.toFixed(0)} seconds`;
             }
+        }, 1000);
+
+    } else {
+        const endTime = new Date();
+        const elapsedTime = (endTime - startTime) / 1000; // in seconds
+        questionText.textContent = `¡Has completado todos los escenarios en ${elapsedTime.toFixed(0)} segundos! Tu puntuación final es ${score}.`;
+        option1Btn.style.display = 'none';
+        option2Btn.style.display = 'none';
+        resultText.textContent = '';
+    }
+}
+        function checkAnswer(selected) {
+            const selectedBtn = selected === 0 ? option1Btn : option2Btn;
+            const isCorrect = selectedBtn.dataset.correct === 'true';
+
+            if (isCorrect) {
+                resultText.textContent = '¡Correcto!';
+                resultText.style.color = 'green';
+                selectedBtn.classList.add('btn-correct');
+                score += 1
+                document.getElementById('score').textContent = `Score: "${score}/${scenarios.length}"`
+            } else {
+                resultText.textContent = '¡Incorrecto!';
+                resultText.style.color = 'red';
+                selectedBtn.classList.add('btn-incorrect');
+            }
+
+            currentScenario++;
+            setTimeout(loadScenario, 2000);  
         }
 
-        function dragLeave(event) {
-            if (event.target.classList.contains('contenedor-drop-ma')) {
-                event.target.style.border = '2px dashed #ccc';
-            }
-        }
+        function shuffleOptions(options, correctIndex) {
+            const shuffled = options.map((option, index) => ({
+                text: option,
+                isCorrect: index === correctIndex
+            }));
 
-        function drop(event) {
-            event.preventDefault();
-            const data = event.dataTransfer.getData('text');
-            const draggedItem = document.getElementById(data);
-            if (event.target.classList.contains('contenedor-drop-ma')) {
-                event.target.appendChild(draggedItem);
-                event.target.style.border = '2px dashed #ccc';
-                // Optionally, you can handle specific actions based on the type of drop container
-                // For example, you can check event.target.id or event.target.getAttribute('data-duration')
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
             }
+
+            return shuffled;
         }
     </script>
 </body>

@@ -49,6 +49,25 @@
             </div>
         </section>
 
+        <section id="bc_gameSection">
+
+                <img src="../assets/start_button_image.png" id="startBtn">
+
+                <div id="bc_game" style="display:none; width:80%; margin:0px;">
+
+                    <p id="bc_question"></p>
+                    <div id="gs-btn-container">
+                        <button id="option1" class="btn btn-option"></button>
+                        <button id="option2" class="btn btn-option"></button>
+                    </div>
+
+                    <p id="result"></p>
+                    <p id="score">Puntaje: 0/10</p>
+                    <p id="time">Tiempo: 0 seconds</p>
+                </div>
+
+            <script src="../functionality/bc_game.js"></script>
+        </section>
         
         <section>
             <div id="ma_game" class="border">
@@ -198,7 +217,7 @@
 
             <div id="yesornogame" style="position: relative; padding: 0px;">
                 <img id="thumbnail" src="../assets/siono_thumbnail-08.png">
-                <img class="startBtn" onClick="start_yesorno()" id="startBtn_yesorno" src="../assets/start_button_image.png" 
+                <img class="startBtn" onClick="start_yesorno()" id="startBtn_yesorno" src="../assets/start_button_image.png">
                 style="position: absolute; top: 90%; left: 50%; transform: translate(-50%, -50%);">
                 <div id="container1_yn">
                     <img src="../assets/personita_yn-02.png" id="littlecharacter_yn">
