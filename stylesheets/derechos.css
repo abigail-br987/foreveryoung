@@ -24,3 +24,17 @@ section:nth-of-type(6) div div{
     padding:40px;
 }
 
+
+#container39{
+    background-color: white; width:60%; position: absolute; bottom:10px; right:10px; padding:40px; border: 3px solid var(--dark-blue); border-radius: 20px
+}
+
+@media screen and (min-width:0px) and (max-width:850px){
+    #container39{
+        width:auto;
+        
+    }
+    #container39 h1{
+        font-size:2rem;
+    }
+}
