@@ -12,7 +12,7 @@ const scenarios = [
     {
         question: "Tu pareja te dice que no le gusta usar condón. ¿Qué haces?",
         options: ["Insistes en usar condón para proteger ambos de infecciones y embarazos no planificados", "Aceptas y no usas protección" ],
-        correct: 1
+        correct: 0
     },
     {
         question: "Estás en una relación y consideras cambiar tu método anticonceptivo. ¿Qué haces?",
@@ -65,102 +65,102 @@ const scenarios = [
 
 ];
 
-let currentScenario = 0;
-let score = 0;
-let startTime = null;
+let currentScenario_bc = 0;
+let score_bc = 0;
+let startTime_bc = null;
 
-const startBtn = document.getElementById('startBtn');
-const gameDiv = document.getElementById('bc_game');
-const questionText = document.getElementById('bc_question');
-const option1Btn = document.getElementById('option1');
-const option2Btn = document.getElementById('option2');
-const resultText = document.getElementById('result');
+const startBtn_bc = document.getElementById('startBtn');
+const gameDiv_bc = document.getElementById('bc_game');
+const questionText_bc = document.getElementById('bc_question');
+const option1Btn_bc = document.getElementById('option1');
+const option2Btn_bc = document.getElementById('option2');
+const resultText_bc = document.getElementById('result');
 
-startBtn.addEventListener('click', () => {
+startBtn_bc.addEventListener('click', () => {
     document.querySelector("#bc_gameSection").style.backgroundImage = 'url("../assets/bc_thumbnail2-09.png")';
     document.querySelector("#bc_gameSection").style.backgroundPosition = "center"
 
-    startBtn.style.display = 'none';
-    gameDiv.style.display = 'block';
-    loadScenario();
+    startBtn_bc.style.display = 'none';
+    gameDiv_bc.style.display = 'block';
+    loadScenario_bc();
 });
 
-option1Btn.addEventListener('click', () => checkAnswer(0));
-option2Btn.addEventListener('click', () => checkAnswer(1));
+option1Btn_bc.addEventListener('click', () => checkAnswer_bc(0));
+option2Btn_bc.addEventListener('click', () => checkAnswer_bc(1));
 
-function loadScenario() {
-    if (currentScenario < scenarios.length) {
-        const options = scenarios[currentScenario].options.slice();
-        const correct = scenarios[currentScenario].correct;
-        const shuffledOptions = shuffleOptions(options, correct);
+function loadScenario_bc() {
+    if (currentScenario_bc < scenarios.length) {
+        const options_bc = scenarios[currentScenario_bc].options.slice();
+        const correct_bc = scenarios[currentScenario_bc].correct;
+        const shuffledOptions_bc = shuffleOptions_bc(options_bc, correct_bc);
 
-        questionText.textContent = scenarios[currentScenario].question;
-        option1Btn.textContent = shuffledOptions[0].text;
-        option2Btn.textContent = shuffledOptions[1].text;
-        option1Btn.dataset.correct = shuffledOptions[0].isCorrect;
-        option2Btn.dataset.correct = shuffledOptions[1].isCorrect;
-        option1Btn.classList.remove('btn-correct', 'btn-incorrect');
-        option2Btn.classList.remove('btn-correct', 'btn-incorrect');
-        resultText.textContent = '';
+        questionText_bc.textContent = scenarios[currentScenario_bc].question;
+        option1Btn_bc.textContent = shuffledOptions_bc[0].text;
+        option2Btn_bc.textContent = shuffledOptions_bc[1].text;
+        option1Btn_bc.dataset.correct_bc = shuffledOptions_bc[0].isCorrect_bc;
+        option2Btn_bc.dataset.correct_bc = shuffledOptions_bc[1].isCorrect_bc;
+        option1Btn_bc.classList.remove('btn-correct', 'btn-incorrect');
+        option2Btn_bc.classList.remove('btn-correct', 'btn-incorrect');
+        resultText_bc.textContent = '';
 
-        if (!startTime) {
-            startTime = new Date(); 
-            setInterval(updateTimer, 1000); 
+        if (!startTime_bc) {
+            startTime_bc = new Date(); 
+            setInterval(updateTimer_bc, 1000); 
         }
 
     } else {
-        endGame();
+        endGame_bc();
     }
 }
 
-function updateTimer() {
-    if (startTime) {
-        const currentTime = new Date();
-        const elapsedTime = (currentTime - startTime) / 1000; 
-        document.getElementById('time').textContent = `Tiempo: ${elapsedTime.toFixed(0)} segundos`;
+function updateTimer_bc() {
+    if (startTime_bc) {
+        const currentTime_bc = new Date();
+        const elapsedTime_bc = (currentTime_bc - startTime_bc) / 1000; 
+        document.getElementById('time').textContent = `Tiempo: ${elapsedTime_bc.toFixed(0)} segundos`;
     }
 }
 
-function endGame() {
-    const endTime = new Date();
-    const elapsedTime = (endTime - startTime) / 1000; 
+function endGame_bc() {
+    const endTime_bc = new Date();
+    const elapsedTime_bc = (endTime_bc - startTime_bc) / 1000; 
 
-    questionText.textContent = `¡Has completado todos los escenarios en ${elapsedTime.toFixed(0)} segundos! Tu puntuación final es ${score}.`;
-    option1Btn.style.display = 'none';
-    option2Btn.style.display = 'none';
-    resultText.textContent = '';
+    questionText_bc.textContent = `¡Has completado todos los escenarios en ${elapsedTime_bc.toFixed(0)} segundos! Tu puntuación final es ${score_bc}.`;
+    option1Btn_bc.style.display = 'none';
+    option2Btn_bc.style.display = 'none';
+    resultText_bc.textContent = '';
 }
 
-function checkAnswer(selected) {
-    const selectedBtn = selected === 0 ? option1Btn : option2Btn;
-    const isCorrect = selectedBtn.dataset.correct === 'true';
+function checkAnswer_bc(selected_bc) {
+    const selectedBtn_bc = selected_bc === 0 ? option1Btn_bc : option2Btn_bc;
+    const isCorrect_bc = selectedBtn_bc.dataset.correct_bc === 'true';
 
-    if (isCorrect) {
-        resultText.textContent = '¡Correcto!';
-        resultText.style.color = 'green';
-        selectedBtn.classList.add('btn-correct');
-        score += 1;
-        document.getElementById('score').textContent = `Puntaje: ${score}/${scenarios.length}`;
+    if (isCorrect_bc) {
+        resultText_bc.textContent = '¡Correcto!';
+        resultText_bc.style.color = 'green';
+        selectedBtn_bc.classList.add('btn-correct');
+        score_bc += 1;
+        document.getElementById('score').textContent = `Puntaje: ${score_bc}/${scenarios.length}`;
     } else {
-        resultText.textContent = '¡Incorrecto!';
-        resultText.style.color = 'red';
-        selectedBtn.classList.add('btn-incorrect');
+        resultText_bc.textContent = '¡Incorrecto!';
+        resultText_bc.style.color = 'red';
+        selectedBtn_bc.classList.add('btn-incorrect');
     }
 
-    currentScenario++;
-    setTimeout(loadScenario, 800); 
+    currentScenario_bc++;
+    setTimeout(loadScenario_bc, 800); 
 }
 
-function shuffleOptions(options, correctIndex) {
-    const shuffled = options.map((option, index) => ({
-        text: option,
-        isCorrect: index === correctIndex
+function shuffleOptions_bc(options_bc, correctIndex_bc) {
+    const shuffled_bc = options_bc.map((option_bc, index_bc) => ({
+        text: option_bc,
+        isCorrect_bc: index_bc === correctIndex_bc
     }));
 
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    for (let i_bc = shuffled_bc.length - 1; i_bc > 0; i_bc--) {
+        const j_bc = Math.floor(Math.random() * (i_bc + 1));
+        [shuffled_bc[i_bc], shuffled_bc[j_bc]] = [shuffled_bc[j_bc], shuffled_bc[i_bc]];
     }
 
-    return shuffled;
+    return shuffled_bc;
 }
