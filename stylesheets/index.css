@@ -174,17 +174,18 @@
         display: flex;
         background-color: var(--white);
     }
-    .card li a{
-        text-decoration:underline var(--dark-blue);
+    .card li a, .specialgrid5 li a{
         color: var(--orange);
-        text-underline-offset:0.2em;
     }
-    .card li{
+    .card li, .specialgrid5 li{
         list-style: square;
+        text-underline-offset:0.2em;
+        text-decoration:underline var(--dark-blue);
+        margin-bottom:10px;
     }
-    .card li a:hover{
+    .card li a:hover, .specialgrid5 li a:hover{
         color: #498f29;
-        text-decoration:none;
+        
     }
     .card div{
         padding:10px;
@@ -317,6 +318,7 @@
 .specialgrid5{
     display: grid; 
     gap: 20px 20px;
+    padding:0px;
     
 }
 
@@ -337,6 +339,7 @@
 .specialgrid5 div{
     border: var(--dark-blue) 3px solid;
     padding-bottom:30px;
+    border-radius: 20px;
     padding:40px;
 }
 
