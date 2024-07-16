@@ -174,8 +174,9 @@
         display: flex;
         background-color: var(--white);
     }
-    .card li a, .specialgrid5 li a{
+    li a:not(nav li a){
         color: var(--orange);
+        transition: 0.2s;
     }
     .card li, .specialgrid5 li{
         list-style: square;
@@ -183,7 +184,7 @@
         text-decoration:underline var(--dark-blue);
         margin-bottom:10px;
     }
-    .card li a:hover, .specialgrid5 li a:hover{
+    li a:hover:not(nav li a){
         color: #498f29;
         
     }

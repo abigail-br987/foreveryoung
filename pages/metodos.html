@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Squares with Modals</title>
+    <link href="../stylesheets/index.css" rel="stylesheet" type="text/css">
+    <link href="../stylesheets/metodos.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <header id="header">
+        <nav role="navigation">
+            <ul>
+                <li><a href="https://www.instagram.com/forever_young_voluntariado/" target="_blank">Instagram</a></li>
+                <li><a href="./juegos.html">Juegos</a></li>
+                <li><a href="../index.html"><img src="../assets/logoforeveryoung.jpg"></a></li>
+                <li class="dropdown">
+                    <a id="resourcesLink">Recursos</a>
+                    <ul class="dropdown-menu" id="dropdownMenu">
+                        <li><a href="./derechos.html">Derechos</a></li>
+                        <li><a href="./resources.html">Enlaces</a></li>
+                        <li><a href="./datos.html">Datos</a></li>
+                        <li><a href="./casos.html">Casos</a></li>
+                        <li><a href="./metodos.html">Metodos</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://drive.google.com/drive/folders/1gNpCWpx-Tmdrjx7DPJAfCOhkjSf6tyLJ?usp=sharing" target="_blank">Diseños</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="space"></div>
+    <script src="../functionality/index.js"></script>
+
+
+    <section>
+        <h2>Métodos Anticonceptivos</h2>
+        <div class="container_bc">
+            <div class="square_bc" data-modal="modal1" style="background-image: url('https://cdnwordpresstest-f0ekdgevcngegudb.z01.azurefd.net/es/wp-content/uploads/2021/09/informacion-sobre-el-preservativo-masculino-1024x683.jpg');">
+                <div class="overlay">
+                    <h4>Condón Masculino</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal2" style="background-image: url('https://itf-labomed.cl/wp-content/uploads/elementor/thumbs/pastillas-anticonceptivas-beneficios-1-osmf29suftcc9he46volxtzf1nricc10wndk06dmxk.jpg');">
+                <div class="overlay">
+                    <h4>Píldora Combinada</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal3" style="background-image: url('https://www.argentina.gob.ar/sites/default/files/inyectable2.jpg');">
+                <div class="overlay">
+                    <h4>Inyectable Combinada</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal4" style="background-image: url('https://flo.health/cdn-cgi/image/quality=85,format=auto/uploads/media/sulu-1000x-inset/00/1210-Woman%20with%20a%20female%20condom%20over%20her%20hand.jpg?v=1-0');">
+                <div class="overlay">
+                    <h4>Condón Femenino</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal5" style="background-image: url('https://fad.es/wp-content/uploads/2022/10/parche-anticonceptivo-1024x432.jpg');">
+                <div class="overlay">
+                    <h4>Parche Combinado</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal6" style="background-image: url('https://www.themarkethink.com/wp-content/uploads/2014/10/anillo-anticonceptivo.jpg');">
+                <div class="overlay">
+                    <h4>Anillo Combinado</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal7" style="background-image: url('https://www.webconsultas.com/sites/default/files/styles/wch_image_schema/public/articulos/uso-espermicidas.jpg');">
+                <div class="overlay">
+                    <h4>Espermicidas</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal8" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRerC3ZFR5u6tyeOdDxmA7j4kxf-tJ7ifHxVQ&s');">
+                <div class="overlay">
+                    <h4>Píldora (solo progestina)</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal9" style="background-image: url('https://vanguardia.com.mx/binrepository/472x368/0c0/0d0/none/11604/ISXG/jeringa-inyeccion-28_VG2870404_MG8040987.jpg');">
+                <div class="overlay">
+                    <h4>Inyectable (solo progestina)</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal10" style="background-image: url('https://i0.wp.com/clinicalacaridadhouston.com/wp-content/uploads/2021/05/implantes-hormonales1.jpg?fit=600%2C400&ssl=1');">
+                <div class="overlay">
+                    <h4>Implante (solo progestina)</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal11" style="background-image: url('https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2013/08/26/10/19/my00997_im04275_mcdc7_paragard_photothu_jpg.jpg');">
+                <div class="overlay">
+                    <h4>DIU de cobre</h4>
+                </div>
+            </div>
+            <div class="square_bc" data-modal="modal12" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSneYKe4sh3xESgz8kN6YvDFGYb6ndyM0_J6g&s');">
+                <div class="overlay">
+                    <h4>DIU hormonal</h4>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal1" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal1">&times;</span>
+                <p>
+                    <h4>Condón Masculino</h4>
+                    <h3>Método de Barrera</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Impide	que	los	espermatozoides	tengan	acceso	al	tracto	reproductor	femenino. </li>
+                        <li>Falla de uso perfecto: 2%</li>
+                        <li>Falla de uso típico: 15%</li>
+                        <li>Uso correcto: <a href="https://www.cdc.gov/condom-use/es/resources/como-usar-un-condon-1.html#:~:text=Saque%20el%20aire%20que%20se,el%20cond%C3%B3n%20en%20el%20lugar.">¿Cómo usar un condón masculino?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal2" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal2">&times;</span>
+                <p>
+                    <h4>Píldora Combinada</h4>
+                    <h3>Método Hormonal</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Supresión de la ovulación, Espesamiento del moco cervical.  </li>
+                        <li>Falla de uso perfecto: 0.3%</li>
+                        <li>Falla de uso típico: 8%</li>
+                        <li>Uso correcto: <a href="https://www.plannedparenthood.org/es/temas-de-salud/anticonceptivos/pastilla-anticonceptiva/como-debo-usar-la-pastilla-anticonceptiva">¿Cómo usar las pastillas?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal3" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal3">&times;</span>
+                <p>
+                    <h4>Inyectable Combinado</h4>
+                    <h3>Método Hormonal</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Supresión de la ovulación, Espesamiento del moco cervical.  </li>
+                        <li>Falla de uso perfecto: 0.05%</li>
+                        <li>Falla de uso típico: 3%</li>
+                        <li>Uso correcto: <a href="https://www.reproduccionasistida.org/inyeccion-anticonceptiva/">¿Cómo usar los inyectables combinados?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal4" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal4">&times;</span>
+                <p>
+                    <h4>Condón Femenino</h4>
+                    <h3>Método de Barrera</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Impide	el	pasaje	de	los	espermatozoides	al	tracto	reproductor	femenino. </li>
+                        <li>Falla de uso perfecto: 5%</li>
+                        <li>Falla de uso típico: 21%</li>
+                        <li>Uso correcto: <a href="https://www.cdc.gov/condom-use/es/resources/como-usar-un-condon-femenino-interno-1.html">¿Cómo usar un condón femenino?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal5" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal5">&times;</span>
+                <p>
+                    <h4>Parche Combinado</h4>
+                    <h3>Método Hormonal</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Supresión de la ovulación, Espesamiento del moco cervical, impidiendo la penetración de los espermatozoides </li>
+                        <li>Falla de uso perfecto: 0.03%</li>
+                        <li>Falla de uso típico: 8%</li>
+                        <li>Uso correcto: <a href="https://www.plannedparenthood.org/es/temas-de-salud/anticonceptivos/parche-anticonceptivo/como-se-usa-el-parche-anticonceptivo">¿Cómo usar un parche?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal6" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal6">&times;</span>
+                <p>
+                    <h4>Anillo Combinado</h4>
+                    <h3>Método Hormonal</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Supresión de la ovulación, Espesamiento del moco cervical, impidiendo la penetración de los espermatozoides </li>
+                        <li>Falla de uso perfecto: 0.3%</li>
+                        <li>Falla de uso típico: 8%</li>
+                        <li>Uso correcto: <a href="https://kidshealth.org/es/teens/contraception-ring.html#:~:text=Col%C3%B3cate%20el%20anillo%20en%20la,pasado%203%20semanas%20colocado%2C%20s%C3%A1calo.">¿Cómo usar un anillo anticonceptivo?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal7" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal7">&times;</span>
+                <p>
+                    <h4>Espermicidas</h4>
+                    <h3>Método de Barrera</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Inactivan o destruyen los espermatozoides en la vagina. </li>
+                        <li>Falla de uso perfecto: 18%</li>
+                        <li>Falla de uso típico: 29%</li>
+                        <li>Uso correcto: <a href="https://www.plannedparenthood.org/es/temas-de-salud/anticonceptivos/espermicida-y-gel-anticonceptivo/como-se-usa-el-espermicida">¿Cómo usar un espermicida?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal8" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal8">&times;</span>
+                <p>
+                    <h4>Píldora (solo Progestina)</h4>
+                    <h3>Método Hormonal</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Inhiben	parcialmente	la	ovulación	y	espesa	el	moco	cervical,	dificultando	la	penetración	de	
+                            los espermatozoides </li>
+                        <li>Falla de uso perfecto: 0.3%</li>
+                        <li>Falla de uso típico: 8%</li>
+                        <li>Uso correcto: <a href="https://medlineplus.gov/spanish/druginfo/meds/a602008-es.html#:~:text=%C2%BFC%C3%B3mo%20se%20debe%20usar%20este%20medicamento%3F&text=La%20presentaci%C3%B3n%20de%20los%20anticonceptivos,d%C3%ADas%20a%20la%20misma%20hora.">¿Cómo usar pildoras de progestina?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal9" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal9">&times;</span>
+                <p>
+                    <h4>Inyectable (solo Progestina)</h4>
+                    <h3>Método Hormonal</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Espesamiento del moco cervical, impidiendo la penetración de los espermatozoides, Supresión	de	la	ovulación	en	un	50%  </li>
+                        <li>Falla de uso perfecto: 0.3%</li>
+                        <li>Falla de uso típico: 3%</li>
+                        <li>Uso correcto: <a href="https://fphandbook.org/sites/default/files/es003-handbookchapter4.pdf">¿Cómo usar inyectables de progestina?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal10" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal10">&times;</span>
+                <p>
+                    <h4>Implante (solo Progestina)</h4>
+                    <h3>Método Hormonal</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Espesamiento	del	moco	cervical,	impidiendo	la	penetración	de	los	espermatozoides, Supresión de la ovulación, Reducción del transporte de	los	óvulos	en	las	Trompas	de	Falopio.  </li>
+                        <li>Falla de uso perfecto: 0.05%</li>
+                        <li>Falla de uso típico: 1%</li>
+                        <li>Uso correcto: <a href="https://www.reproductiveaccess.org/wp-content/uploads/2015/03/factsheet_implant_sp.pdf">¿Cómo usar implante de progestina?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal11" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal11">&times;</span>
+                <p>
+                    <h4>DIU de cobre</h4>
+                    <h3>Método Anticonceptivo</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Afectan	la	capacidad	de	los	espermatozoides	de	pasar	a	través	de	la	cavidad	uterina	ya	sea	
+                            inmovilizándolos o destruyéndolos, Interfieren	en	el	proceso	reproductor	antes	que	ocurra	la	fertilización</li>
+                        <li>Falla de uso perfecto: 0.6%</li>
+                        <li>Falla de uso típico: 0.8%</li>
+                        <li>Uso correcto: <a href="https://www.plannedparenthood.org/es/temas-de-salud/anticonceptivos/dispositivo-intrauterino-diu/como-se-coloca-el-dispositivo-intrauterino-diu">¿Cómo usar el t de cobre?</a> </li>
+                </p>
+            </div>
+        </div>
+        <div id="modal12" class="modal_bc">
+            <div class="modal-content_bc">
+                <span class="close" data-close="modal12">&times;</span>
+                <p>
+                    <h4>DIU (progestágeno) </h4>
+                    <h3>Método Hormonal</h3>
+                    <ul>
+                        <li>Mecanismo de Acción: Espesamiento del moco cervical, impidiendo la penetración de los espermatozoides, Supresión de la ovulación   </li>
+                        <li>Falla de uso perfecto: 0.1%</li>
+                        <li>Falla de uso típico: 0.1%</li>
+                        <li>Uso correcto: <a href="https://medlineplus.gov/spanish/ency/article/007635.htm#:~:text=Desliza%20un%20tubo%20pl%C3%A1stico%20que,c%C3%A9rvix%20dentro%20de%20la%20vagina.">¿Cómo usar el t hormonal?</a> </li>
+                </p>
+            </div>
+        </div>
+        <script src="../functionality/metodos.js"></script>
+    </section>
+    
+
+</body>
+</html>
