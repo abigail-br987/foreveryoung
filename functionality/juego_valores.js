@@ -1,231 +1,219 @@
-let board;
-let boardWidth = 360;
-let boardHeight = 576;
-let context;
+let jvBoard;
+let jvBoardWidth = 360;
+let jvBoardHeight = 576;
+let jvContext;
 
+let jvDoodlerWidth = 46;
+let jvDoodlerHeight = 96;
+let jvDoodlerX = jvBoardWidth / 2 - jvDoodlerWidth / 2;
+let jvDoodlerY = jvBoardHeight * 7 / 8 - jvDoodlerHeight;
+let jvDoodlerRightImg;
+let jvDoodlerLeftImg;
 
-let doodlerWidth = 46;
-let doodlerHeight = 96;
-let doodlerX = boardWidth / 2 - doodlerWidth / 2;
-let doodlerY = boardHeight * 7 / 8 - doodlerHeight;
-let doodlerRightImg;
-let doodlerLeftImg;
-
-let doodler = {
+let jvDoodler = {
     img: null,
-    x: doodlerX,
-    y: doodlerY,
-    width: doodlerWidth,
-    height: doodlerHeight
+    x: jvDoodlerX,
+    y: jvDoodlerY,
+    width: jvDoodlerWidth,
+    height: jvDoodlerHeight
 }
 
-let velocityX = 0;
-let velocityY = 0; 
-let initialVelocityY = -8; 
-let gravity = 0.4;
+let jvVelocityX = 0;
+let jvVelocityY = 0; 
+let jvInitialVelocityY = -8; 
+let jvGravity = 0.4;
 
-//platforms
-let platformArray = [];
-let platformWidth = 80;
-let platformHeight = 18;
+let jvPlatformArray = [];
+let jvPlatformWidth = 80;
+let jvPlatformHeight = 18;
 
-let score_valores = 0;
-let maxScore_valores = 0;
-let gameOver = false;
-let start_game_valores = document.getElementById(".startBtn_valores")
-let platform_images = ["../assets/amor.png", "../assets/lealtad.png",
+let jvScoreValores = 0;
+let jvMaxScoreValores = 0;
+let jvGameOver = false;
+let jvStartGameValores = document.getElementById("startBtn_valores");
+let jvPlatformImages = ["../assets/amor.png", "../assets/lealtad.png",
     "../assets/honestidad.png", "../assets/amistad.png", "../assets/respeto.png", "../assets/honor.png", 
     "../assets/honradez.png", "../assets/justicia.png", "../assets/libertad.png", "../assets/solidaridad.png",
     "../assets/paz.png", "../assets/integridad.png"];
 
-
 window.onload = function () {
-    board = document.getElementById("board");
-    board.height = boardHeight;
-    board.width = boardWidth;
-    context = board.getContext("2d"); //used for drawing on the board
-    doodlerRightImg = new Image();
-    doodlerRightImg.src = "../assets/personita-right.png";
-    doodler.img = doodlerRightImg;
-    doodlerRightImg.onload = function () {
-        context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height);
+    jvBoard = document.getElementById("board0");
+    jvBoard.height = jvBoardHeight;
+    jvBoard.width = jvBoardWidth;
+    jvContext = jvBoard.getContext("2d"); 
+    jvDoodlerRightImg = new Image();
+    jvDoodlerRightImg.src = "../assets/personita-right.png";
+    jvDoodler.img = jvDoodlerRightImg;
+    jvDoodlerRightImg.onload = function () {
+        jvContext.drawImage(jvDoodler.img, jvDoodler.x, jvDoodler.y, jvDoodler.width, jvDoodler.height);
     }
 
-    doodlerLeftImg = new Image();
-    doodlerLeftImg.src = "../assets/personita-left.png";
-    velocityY = initialVelocityY;
-    placePlatforms();
-
+    jvDoodlerLeftImg = new Image();
+    jvDoodlerLeftImg.src = "../assets/personita-left.png";
+    jvVelocityY = jvInitialVelocityY;
+    jvPlacePlatforms();
 }
 
+function jvStartValores() {
+    jvStartGameValores.style.display = "none";
 
-function start_valores() {
-    start_game_valores.style.display = "none";
-
-    board = document.getElementById("board");
-    board.height = boardHeight;
-    board.width = boardWidth;
-    context = board.getContext("2d"); //used for drawing on the board
-    doodlerRightImg = new Image();
-    doodlerRightImg.src = "../assets/personita-right.png";
-    doodler.img = doodlerRightImg;
-    doodlerRightImg.onload = function () {
-        context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height);
+    jvBoard = document.getElementById("board0");
+    jvBoard.height = jvBoardHeight;
+    jvBoard.width = jvBoardWidth;
+    jvContext = jvBoard.getContext("2d");
+    jvDoodlerRightImg = new Image();
+    jvDoodlerRightImg.src = "../assets/personita-right.png";
+    jvDoodler.img = jvDoodlerRightImg;
+    jvDoodlerRightImg.onload = function () {
+        jvContext.drawImage(jvDoodler.img, jvDoodler.x, jvDoodler.y, jvDoodler.width, jvDoodler.height);
     }
 
-    doodlerLeftImg = new Image();
-    doodlerLeftImg.src = "../assets/personita-left.png";
+    jvDoodlerLeftImg = new Image();
+    jvDoodlerLeftImg.src = "../assets/personita-left.png";
 
-    velocityY = initialVelocityY;
-    placePlatforms();
-    requestAnimationFrame(update);
-    document.addEventListener("keydown", moveDoodler);
+    jvVelocityY = jvInitialVelocityY;
+    jvPlacePlatforms();
+    requestAnimationFrame(jvUpdate);
+    document.addEventListener("keydown", jvMoveDoodler);
 }
 
-function update() {
-    requestAnimationFrame(update);
-    if (gameOver) {
+function jvUpdate() {
+    requestAnimationFrame(jvUpdate);
+    if (jvGameOver) {
         return;
     }
-    context.clearRect(0, 0, board.width, board.height);
+    jvContext.clearRect(0, 0, jvBoard.width, jvBoard.height);
 
-    //doodler
-    doodler.x += velocityX;
-    if (doodler.x > boardWidth) {
-        doodler.x = 0;
+    jvDoodler.x += jvVelocityX;
+    if (jvDoodler.x > jvBoardWidth) {
+        jvDoodler.x = 0;
     }
-    else if (doodler.x + doodler.width < 0) {
-        doodler.x = boardWidth;
+    else if (jvDoodler.x + jvDoodler.width < 0) {
+        jvDoodler.x = jvBoardWidth;
     }
 
-    velocityY += gravity;
-    doodler.y += velocityY;
-    if (doodler.y > board.height) {
-        gameOver = true;
+    jvVelocityY += jvGravity;
+    jvDoodler.y += jvVelocityY;
+    if (jvDoodler.y > jvBoard.height) {
+        jvGameOver = true;
     }
-    context.drawImage(doodler.img, doodler.x, doodler.y, doodler.width, doodler.height);
+    jvContext.drawImage(jvDoodler.img, jvDoodler.x, jvDoodler.y, jvDoodler.width, jvDoodler.height);
 
-    //platforms
-    for (let i = 0; i < platformArray.length; i++) {
-        let platform = platformArray[i];
-        if (velocityY < 0 && doodler.y < boardHeight * 3 / 4) {
-            platform.y -= initialVelocityY; //slide platform down
+    for (let i = 0; i < jvPlatformArray.length; i++) {
+        let jvPlatform = jvPlatformArray[i];
+        if (jvVelocityY < 0 && jvDoodler.y < jvBoardHeight * 3 / 4) {
+            jvPlatform.y -= jvInitialVelocityY;
         }
-        if (detectCollision(doodler, platform) && velocityY >= 0) {
-            velocityY = initialVelocityY; //jump
+        if (jvDetectCollision(jvDoodler, jvPlatform) && jvVelocityY >= 0) {
+            jvVelocityY = jvInitialVelocityY;
         }
-        context.drawImage(platform.img, platform.x, platform.y, platform.width, platform.height);
+        jvContext.drawImage(jvPlatform.img, jvPlatform.x, jvPlatform.y, jvPlatform.width, jvPlatform.height);
     }
 
-    // clear platforms and add new platform
-    while (platformArray.length > 0 && platformArray[0].y >= boardHeight) {
-        platformArray.shift(); //removes first element from the array
-        newPlatform(); //replace with new platform on top
+    while (jvPlatformArray.length > 0 && jvPlatformArray[0].y >= jvBoardHeight) {
+        jvPlatformArray.shift();
+        jvNewPlatform();
     }
 
-    //score
-    updateScore();
-    context.fillStyle = "white";
-    context.font = "16px Darumadrop One";
-    context.fillText("Puntaje:", 5, 20);
-    context.fillText(score_valores, 5, 40);
-    
+    jvUpdateScore();
+    jvContext.fillStyle = "white";
+    jvContext.font = "16px Darumadrop One";
+    jvContext.fillText("Puntaje:", 5, 20);
+    jvContext.fillText(jvScoreValores, 5, 40);
 
-
-    if (gameOver) {
-        context.fillText("Presiona 'ESPACIO'", boardWidth / 7, boardHeight * 7 / 8);
-        context.fillText("para reiniciar", boardWidth / 7, boardHeight * 7 / 8 + 20); // Adjust the y-coordinate for the second line
-            }
-}
-
-function moveDoodler(e) {
-    if (e.code == "ArrowRight" || e.code == "KeyD") { //move right
-        velocityX = 4;
-        doodler.img = doodlerRightImg;
-    }
-    else if (e.code == "ArrowLeft" || e.code == "KeyA") { //move left
-        velocityX = -4;
-        doodler.img = doodlerLeftImg;
-    }
-    else if (e.code == "Space" && gameOver) {
-        //reset
-        doodler = {
-            img: doodlerRightImg,
-            x: doodlerX,
-            y: doodlerY,
-            width: doodlerWidth,
-            height: doodlerHeight
-        }
-
-        velocityX = 0;
-        velocityY = initialVelocityY;
-        score_valores = 0;
-        maxScore_valores = 0;
-        gameOver = false;
-        placePlatforms();
+    if (jvGameOver) {
+        jvContext.fillText("Presiona 'ESPACIO'", jvBoardWidth / 7, jvBoardHeight * 7 / 8);
+        jvContext.fillText("para reiniciar", jvBoardWidth / 7, jvBoardHeight * 7 / 8 + 20);
     }
 }
 
-function placePlatforms() {
-    platformArray = [];
+function jvMoveDoodler(e) {
+    if (e.code == "ArrowRight" || e.code == "KeyD") {
+        jvVelocityX = 4;
+        jvDoodler.img = jvDoodlerRightImg;
+    }
+    else if (e.code == "ArrowLeft" || e.code == "KeyA") {
+        jvVelocityX = -4;
+        jvDoodler.img = jvDoodlerLeftImg;
+    }
+    else if (e.code == "Space" && jvGameOver) {
+        jvDoodler = {
+            img: jvDoodlerRightImg,
+            x: jvDoodlerX,
+            y: jvDoodlerY,
+            width: jvDoodlerWidth,
+            height: jvDoodlerHeight
+        }
 
-    let platform = {
+        jvVelocityX = 0;
+        jvVelocityY = jvInitialVelocityY;
+        jvScoreValores = 0;
+        jvMaxScoreValores = 0;
+        jvGameOver = false;
+        jvPlacePlatforms();
+    }
+}
+
+function jvPlacePlatforms() {
+    jvPlatformArray = [];
+
+    let jvPlatform = {
         img: new Image(),
-        x: boardWidth / 2,
-        y: boardHeight - 50,
-        width: platformWidth,
-        height: platformHeight
+        x: jvBoardWidth / 2,
+        y: jvBoardHeight - 50,
+        width: jvPlatformWidth,
+        height: jvPlatformHeight
     }
-    platform.img.src = randomPlatformImage();
-    platformArray.push(platform);
+    jvPlatform.img.src = jvRandomPlatformImage();
+    jvPlatformArray.push(jvPlatform);
 
     for (let i = 0; i < 6; i++) {
-        let randomX = Math.floor(Math.random() * boardWidth * 3 / 4);
-        let platform = {
+        let jvRandomX = Math.floor(Math.random() * jvBoardWidth * 3 / 4);
+        let jvPlatform = {
             img: new Image(),
-            x: randomX,
-            y: boardHeight - 75 * i - 150,
-            width: platformWidth,
-            height: platformHeight
+            x: jvRandomX,
+            y: jvBoardHeight - 75 * i - 150,
+            width: jvPlatformWidth,
+            height: jvPlatformHeight
         }
-        platform.img.src = randomPlatformImage();
-        platformArray.push(platform);
+        jvPlatform.img.src = jvRandomPlatformImage();
+        jvPlatformArray.push(jvPlatform);
     }
 }
 
-function newPlatform() {
-    let randomX = Math.floor(Math.random() * boardWidth * 3 / 4);
-    let platform = {
+function jvNewPlatform() {
+    let jvRandomX = Math.floor(Math.random() * jvBoardWidth * 3 / 4);
+    let jvPlatform = {
         img: new Image(),
-        x: randomX,
-        y: -platformHeight,
-        width: platformWidth,
-        height: platformHeight
+        x: jvRandomX,
+        y: -jvPlatformHeight,
+        width: jvPlatformWidth,
+        height: jvPlatformHeight
     }
-    platform.img.src = randomPlatformImage();
-    platformArray.push(platform);
+    jvPlatform.img.src = jvRandomPlatformImage();
+    jvPlatformArray.push(jvPlatform);
 }
 
-function detectCollision(a, b) {
+function jvDetectCollision(a, b) {
     return a.x < b.x + b.width &&
         a.x + a.width > b.x &&
         a.y < b.y + b.height &&
         a.y + a.height > b.y;
 }
 
-function updateScore() {
-    let points = Math.floor(50 * Math.random());
-    if (velocityY < 0) {
-        maxScore_valores += points;
-        if (score_valores < maxScore_valores) {
-            score_valores = maxScore_valores;
+function jvUpdateScore() {
+    let jvPoints = Math.floor(50 * Math.random());
+    if (jvVelocityY < 0) {
+        jvMaxScoreValores += jvPoints;
+        if (jvScoreValores < jvMaxScoreValores) {
+            jvScoreValores = jvMaxScoreValores;
         }
     }
-    else if (velocityY >= 0) {
-        maxScore_valores -= points;
+    else if (jvVelocityY >= 0) {
+        jvMaxScoreValores -= jvPoints;
     }
 }
 
-function randomPlatformImage() {
-    return platform_images[Math.floor(Math.random() * platform_images.length)];
+function jvRandomPlatformImage() {
+    return jvPlatformImages[Math.floor(Math.random() * jvPlatformImages.length)];
 }

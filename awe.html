@@ -1,0 +1,77 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>Contraceptive Methods Sorting Game</title>
+    <style>
+        .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        }
+        .item {
+        margin: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        cursor: grab;
+        }
+        .sortable {
+        min-height: 100px;
+        border: 2px dashed #ccc;
+        padding: 10px;
+        }
+    </style>
+    </head>
+    <body>
+    <h1>Sort Contraceptive Methods by Effectiveness</h1>
+    <div class="container" id="items">
+        <div class="item" draggable="true" data-effectiveness="85">Condom</div>
+        <div class="item" draggable="true" data-effectiveness="99">Pill</div>
+        <div class="item" draggable="true" data-effectiveness="99">IUD</div>
+    </div>
+    <div class="container sortable" id="sorted"></div>
+    <button onclick="checkSorting()">Check Sorting</button>
+    <div id="result"></div>
+
+    <script>
+        const items = document.querySelectorAll('.item');
+        const sortedContainer = document.getElementById('sorted');
+
+        items.forEach(item => {
+        item.addEventListener('dragstart', dragStart);
+        });
+
+        sortedContainer.addEventListener('dragover', dragOver);
+        sortedContainer.addEventListener('drop', drop);
+
+        function dragStart(e) {
+        e.dataTransfer.setData('text/plain', e.target.dataset.effectiveness);
+        e.dataTransfer.setData('text/html', e.target.outerHTML);
+        e.target.classList.add('dragging');
+        }
+
+        function dragOver(e) {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = 'move';
+        }
+
+        function drop(e) {
+        e.preventDefault();
+        const data = e.dataTransfer.getData('text/html');
+        sortedContainer.innerHTML += data;
+        document.querySelector('.dragging').remove();
+        }
+
+        function checkSorting() {
+        const sortedItems = sortedContainer.querySelectorAll('.item');
+        let sorted = true;
+        for (let i = 0; i < sortedItems.length - 1; i++) {
+            if (parseInt(sortedItems[i].dataset.effectiveness) < parseInt(sortedItems[i + 1].dataset.effectiveness)) {
+            sorted = false;
+            break;
+            }
+        }
+        document.getElementById('result').innerText = sorted ? 'Correctly Sorted!' : 'Incorrectly Sorted. Try Again.';
+        }
+    </script>
+    </body>
+    </html>
